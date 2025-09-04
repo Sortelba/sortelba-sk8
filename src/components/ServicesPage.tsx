@@ -90,10 +90,10 @@ const PriceCard: React.FC<{
             {features.map((feature, index) => (
                 <li key={index} className="flex items-center text-gray-700">
                     <svg className="w-5 h-5 mr-3 text-brand-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                    <span>{feature}</span>
-                </li>
-            ))}
-        </ul>
+                        <span>{feature}</span>
+                    </li>
+                ))}
+            </ul>
         <button
             onClick={() => onNavigate('contact', `Buchungsanfrage: ${title}`)}
             className={`w-full py-3 px-6 font-bold rounded-lg transition-colors duration-300 ${isFeatured ? 'bg-brand-primary text-white hover:bg-blue-600' : 'bg-blue-50 text-brand-primary hover:bg-blue-100'}`}
@@ -114,7 +114,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
     const pricingOptions = [
         {
             title: "Einzelkurs",
-            price: "€60",
+            price: "€30",
             priceDetails: "/ 60 Min.",
             features: [
                 "Individueller Einzelunterricht",
@@ -138,10 +138,10 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
         },
         {
             title: "Gruppenkurs",
-            price: "€30",
+            price: "€25",
             priceDetails: "/ Pers. / 90 Min.",
             features: [
-                "Lernen mit Freunden (2-4 Pers.)",
+                "Lernen mit Freunden (bis zu 5 Pers.)",
                 "Gemeinsamer Spaß & Motivation",
                 "Günstigerer Preis pro Person",
                 "Eigenes Equipment erforderlich",
