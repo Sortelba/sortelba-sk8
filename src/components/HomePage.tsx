@@ -15,7 +15,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       <div className="relative w-full h-[65vh] min-h-[450px] max-h-[700px] shadow-2xl">
         <video
           className="absolute top-0 left-0 w-full h-full object-cover"
-          src="https://drive.google.com/file/d/1Q-jtL3b6AVZoXhkQMltH9K8PW6iLUmUV/view?usp=sharing"
+          src="https://drive.google.com/uc?export=download&id=1Q-jtL3b6AVZoXhkQMltH9K8PW6iLUmUV"
           autoPlay
           loop
           muted
