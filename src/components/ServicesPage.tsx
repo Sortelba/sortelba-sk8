@@ -137,13 +137,13 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
     const pricingOptions = [
         {
             title: "Einzelkurs",
-            price: "€30",
+            price: "€60",
             priceDetails: "/ 60 Min.",
             features: [
                 "Individueller Einzelunterricht",
                 "Volle Aufmerksamkeit des Coaches",
                 "Perfekt für den Einstieg",
-                "Leih-Equipment für 5€ Aufpreis",
+                "Eigenes Equipment erforderlich",
             ],
             isFeatured: false,
         },
@@ -155,19 +155,19 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                 "1 Kurs geschenkt (5 zum Preis von 4)",
                 "Flexibel einlösbare Termine",
                 "Konsequenter Lernfortschritt",
-                "Leih-Equipment für 5€ Aufpreis",
+                "Eigenes Equipment erforderlich",
             ],
             isFeatured: true,
         },
         {
             title: "Gruppenkurs",
-            price: "€25",
+            price: "€30",
             priceDetails: "/ Pers. / 90 Min.",
             features: [
                 "Lernen mit Freunden (2-4 Pers.)",
                 "Gemeinsamer Spaß & Motivation",
                 "Günstigerer Preis pro Person",
-                "Leih-Equipment für 5€ Aufpreis",
+                "Eigenes Equipment erforderlich",
             ],
             isFeatured: false,
         }
