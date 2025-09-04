@@ -39,10 +39,10 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="mb-10">
                 <h3 className="text-sm font-semibold text-brand-gray uppercase tracking-wider mb-6">Unterstützt von</h3>
                 <div className="flex justify-center items-center gap-x-8 md:gap-x-12 flex-wrap">
-                    <a href="#" aria-label="Sponsor Skatebolt" className="text-gray-400 hover:text-brand-dark transition-colors duration-300">
+                    <a href="https://www.lifeboy-skateshop.de/?s=lifeboy" aria-label="Sponsor Skatebolt" className="text-gray-400 hover:text-brand-dark transition-colors duration-300">
                         <SponsorSkatebolt className="h-6" />
                     </a>
-                    <a href="#" aria-label="Sponsor UrbanEdge" className="text-gray-400 hover:text-brand-dark transition-colors duration-300">
+                    <a href="https://blackheavenshop.com/Beerrings-Classic-Edition" aria-label="Sponsor UrbanEdge" className="text-gray-400 hover:text-brand-dark transition-colors duration-300">
                         <SponsorUrbanEdge className="h-7" />
                     </a>
                     <a href="https://solide.myspreadshop.de/" target="_blank" rel="noopener noreferrer" aria-label="Sponsor Solide" className="text-gray-400 hover:text-brand-dark transition-colors duration-300">
