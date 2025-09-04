@@ -23,7 +23,7 @@ const ImpressumPage: React.FC = () => {
             <h3 className="text-xl font-bold text-brand-dark pt-4">Umsatzsteuer-ID</h3>
             <p>
                 Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
-                [Ihre USt-IdNr.]
+                [Ihre USt-IdNr. In Vorbereitung]
             </p>
 
             <h3 className="text-xl font-bold text-brand-dark pt-4">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
@@ -36,10 +36,6 @@ const ImpressumPage: React.FC = () => {
             <p>
                 <strong>Haftung für Inhalte</strong><br />
                 Die Inhalte unserer Seiten wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
-            </p>
-
-            <p className="pt-4 font-semibold">
-              Dies ist nur ein Beispiel. Bitte ersetzen Sie die Platzhalter durch Ihre eigenen, korrekten Angaben und lassen Sie Ihr Impressum ggf. rechtlich prüfen.
             </p>
         </div>
       </div>

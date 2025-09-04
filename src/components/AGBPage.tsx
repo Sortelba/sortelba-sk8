@@ -22,12 +22,10 @@ const AGBPage: React.FC = () => {
 
           <h3 className="text-xl font-bold text-brand-dark pt-4">§ 3 Preise und Zahlungsbedingungen</h3>
           <p>
-            Alle Preise, die auf der Website des Anbieters angegeben sind, verstehen sich einschließlich der jeweils gültigen gesetzlichen Umsatzsteuer. Die Zahlung erfolgt per [Zahlungsmethoden, z.B. Vorkasse, PayPal, etc.].
+            Alle Preise, die auf der Website des Anbieters angegeben sind, verstehen sich einschließlich der jeweils gültigen gesetzlichen Umsatzsteuer. Die Zahlung erfolgt per [Zahlungsmethoden,Bar,Paypal,Überweisung)  etc.].
           </p>
           
-          <p className="pt-4 font-semibold">
-            Dies ist nur ein Beispiel. Fügen Sie hier Ihre vollständigen AGB ein.
-          </p>
+        
         </div>
       </div>
     </div>
