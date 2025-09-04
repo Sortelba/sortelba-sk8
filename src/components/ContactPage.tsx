@@ -7,7 +7,6 @@ interface ContactPageProps {
 
 const topicOptions = [
     'Buchungsanfrage',
-    'Gutscheinanfrage',
     'Frage zum Kursinhalt',
     'Feedback & Anregungen',
     'Sonstiges'
