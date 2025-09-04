@@ -43,8 +43,7 @@ const services: Service[] = [
         features: [
             "Videoanalyse deiner Tricks",
             "Individueller Trainingsplan",
-            "Fortgeschrittene Flip- und Grab-Tricks",
-            "Vert- und Bowl-Skating",
+            "Fortgeschrittene Flip- und Grab-Tricks",,
             "Wettkampfvorbereitung"
         ],
         detailedDescription: "Unser Profi-Coaching ist ein 1-zu-1-Training, das komplett auf deine Wünsche und Ziele zugeschnitten ist. Egal ob du einen bestimmten Trick lernen, dich auf einen Wettbewerb vorbereiten oder einfach deine Technik verfeinern möchtest – wir erstellen einen individuellen Plan für dich. Mithilfe von Videoanalysen decken wir Verbesserungspotenziale auf und arbeiten gezielt an deinen Schwächen.",
