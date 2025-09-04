@@ -45,7 +45,9 @@ const App: React.FC = () => {
     <div className="flex flex-col min-h-screen bg-brand-light font-sans text-brand-dark">
       <Header currentPage={currentPage} onNavigate={handleSetPage} />
       <main className="flex-grow">
-        {renderPage()}
+        <div key={currentPage} className="page-transition-enter">
+          {renderPage()}
+        </div>
       </main>
       <Footer onNavigate={handleSetPage} />
     </div>
