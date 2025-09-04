@@ -45,7 +45,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                     <a href="#" aria-label="Sponsor UrbanEdge" className="text-gray-400 hover:text-brand-dark transition-colors duration-300">
                         <SponsorUrbanEdge className="h-7" />
                     </a>
-                    <a href="#" aria-label="Sponsor Nollie" className="text-gray-400 hover:text-brand-dark transition-colors duration-300">
+                    <a href="https://solide.myspreadshop.de/" target="_blank" rel="noopener noreferrer" aria-label="Sponsor Solide" className="text-gray-400 hover:text-brand-dark transition-colors duration-300">
                         <SponsorNollie className="h-8" />
                     </a>
                 </div>
