@@ -18,8 +18,7 @@ const ImpressumPage: React.FC = () => {
             <p>
                 Telefon: 015204469299<br />
                 E-Mail: sortelba@online.de
-            </p>
-            
+            </p>  
             <h3 className="text-xl font-bold text-brand-dark pt-4">Umsatzsteuer-ID</h3>
             <p>
                 Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
