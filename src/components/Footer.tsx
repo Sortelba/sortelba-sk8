@@ -96,6 +96,12 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 >
                     Trick Randomizer
                 </button>
+                <button
+                    onClick={() => onNavigate('verein-finder')}
+                    className="text-brand-gray hover:text-brand-primary transition-colors duration-300"
+                >
+                    Verein Finden
+                </button>
             </div>
             <p className="text-sm text-brand-gray">
               &copy; {new Date().getFullYear()} Sortelba. Alle Rechte vorbehalten.

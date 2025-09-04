@@ -8,6 +8,7 @@ import ContactPage from './components/ContactPage';
 import FAQPage from './components/FAQPage';
 import AGBPage from './components/AGBPage';
 import ImpressumPage from './components/ImpressumPage';
+import VereinFinderPage from './components/VereinFinderPage';
 import type { Page } from './types';
 
 const App: React.FC = () => {
@@ -34,6 +35,8 @@ const App: React.FC = () => {
         return <AGBPage />;
       case 'impressum':
         return <ImpressumPage />;
+      case 'verein-finder':
+        return <VereinFinderPage />;
       case 'contact':
         return <ContactPage initialSubject={contactSubject} />;
       default:

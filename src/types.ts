@@ -1,4 +1,4 @@
-export type Page = 'home' | 'services' | 'about' | 'contact' | 'faq' | 'agb' | 'impressum';
+export type Page = 'home' | 'services' | 'about' | 'contact' | 'faq' | 'agb' | 'impressum' | 'verein-finder';
 
 export interface SocialLink {
   name: string;
