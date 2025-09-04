@@ -25,13 +25,6 @@ const ImpressumPage: React.FC = () => {
                 Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br />
                 [Ihre USt-IdNr. In Vorbereitung]
             </p>
-
-            <h3 className="text-xl font-bold text-brand-dark pt-4">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
-            <p>
-                Steffen Ortelbach<br />
-                Anschrift wie oben
-            </p>
-
             <h3 className="text-xl font-bold text-brand-dark pt-4">Haftungsausschluss</h3>
             <p>
                 <strong>Haftung für Inhalte</strong><br />
