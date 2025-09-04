@@ -28,7 +28,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
             Lerne Skateboard Fahren
           </h1>
           <p className="mt-4 text-lg md:text-xl text-gray-200 max-w-2xl mx-auto drop-shadow-md">
-            Vom ersten Schritt auf dem Board bis zu deinem ersten Kickflip – wir bringen dich weiter.
+            Vom ersten Schritt auf dem Board bis zu deinem ersten Kickflip – ich bringe dich weiter.
           </p>
           <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
             <button
