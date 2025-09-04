@@ -8,16 +8,16 @@ const ImpressumPage: React.FC = () => {
         <div className="mt-8 space-y-4 text-brand-gray leading-relaxed prose">
             <h3 className="text-xl font-bold text-brand-dark">Angaben gemäß § 5 TMG</h3>
             <p>
-                [Max Mustermann]<br />
-                [Musterstraße 123]<br />
-                [12345 Musterstadt]<br />
-                [Deutschland]
+                Steffen Ortelbach<br />
+                Gaußstr. 8<br />
+                76131 Karlsruhe<br />
+                Deutschland
             </p>
 
             <h3 className="text-xl font-bold text-brand-dark pt-4">Kontakt</h3>
             <p>
-                Telefon: [Ihre Telefonnummer]<br />
-                E-Mail: [Ihre E-Mail-Adresse]
+                Telefon: 015204469299<br />
+                E-Mail: sortelba@online.de
             </p>
             
             <h3 className="text-xl font-bold text-brand-dark pt-4">Umsatzsteuer-ID</h3>
@@ -28,8 +28,8 @@ const ImpressumPage: React.FC = () => {
 
             <h3 className="text-xl font-bold text-brand-dark pt-4">Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV</h3>
             <p>
-                [Max Mustermann]<br />
-                [Anschrift wie oben]
+                Steffen Ortelbach<br />
+                Anschrift wie oben
             </p>
 
             <h3 className="text-xl font-bold text-brand-dark pt-4">Haftungsausschluss</h3>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 
 interface ContactPageProps {
     initialSubject?: string;
@@ -18,24 +19,22 @@ const ContactPage: React.FC<ContactPageProps> = ({ initialSubject = '' }) => {
   const [subject, setSubject] = useState(initialSubject);
   const [message, setMessage] = useState('');
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [selectedTopics, setSelectedTopics] = useState<string[]>([]);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  // Set subject when initialSubject prop changes
   useEffect(() => {
     setSubject(initialSubject);
   }, [initialSubject]);
 
-  // Keep selectedTopics in sync with the subject string.
-  // This is the single source of truth for what topics are considered "selected".
   useEffect(() => {
     const currentTopics = topicOptions.filter(topic => subject.includes(topic));
     setSelectedTopics(currentTopics);
   }, [subject]);
 
-  // Handle clicks outside dropdown to close it
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
@@ -51,13 +50,36 @@ const ContactPage: React.FC<ContactPageProps> = ({ initialSubject = '' }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log({ name, email, subject, message });
-    setIsSubmitted(true);
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    const serviceID = 'service_sxq9s8g';
+    const templateID = 'template_xgvny18';
+    const publicKey = 'VXhP2N2ZcXkMG6-WC';
+
+    const templateParams = {
+        from_name: name,
+        from_email: email,
+        subject: subject,
+        message: message,
+    };
+
+    emailjs.send(serviceID, templateID, templateParams, publicKey)
+      .then(() => {
+        setIsSubmitted(true);
+      })
+      .catch((err) => {
+        console.error('EmailJS error:', err);
+        setSubmitError('Es gab einen Fehler beim Senden der Nachricht. Bitte versuchen Sie es später erneut.');
+      })
+      .finally(() => {
+        setIsSubmitting(false);
+      });
   };
   
   const handleAddTopic = (topic: string) => {
-    // The check uses the selectedTopics state, which is always in sync
-    // with the subject field thanks to the useEffect hook.
     if (selectedTopics.length < 2 && !selectedTopics.includes(topic)) {
       setSubject(prev => prev.trim() ? `${prev.trim()}, ${topic}` : topic);
     }
@@ -69,8 +91,8 @@ const ContactPage: React.FC<ContactPageProps> = ({ initialSubject = '' }) => {
       setName('');
       setEmail('');
       setMessage('');
-      // Resetting the subject will trigger the useEffect to also reset the selectedTopics
       setSubject(initialSubject);
+      setSubmitError('');
   }
 
   if (isSubmitted) {
@@ -187,10 +209,12 @@ const ContactPage: React.FC<ContactPageProps> = ({ initialSubject = '' }) => {
             <div>
                 <button
                     type="submit"
-                    className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-brand-primary hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-brand-primary transition-colors duration-300"
+                    disabled={isSubmitting}
+                    className="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-brand-primary hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-brand-primary transition-colors duration-300 disabled:bg-brand-gray disabled:cursor-not-allowed"
                 >
-                    Nachricht Senden
+                    {isSubmitting ? 'Senden...' : 'Nachricht Senden'}
                 </button>
+                {submitError && <p className="mt-4 text-center text-red-500">{submitError}</p>}
             </div>
         </form>
     </div>
