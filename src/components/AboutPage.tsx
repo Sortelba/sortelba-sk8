@@ -7,8 +7,7 @@ const AboutPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-center">
           <div className="md:col-span-1">
             <img
-              src="https://drive.google.com/uc?export=view&id=1gBBUWdiNElFUJItm-AZap2PcdCoLOivt
-"
+              src="https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/refs/heads/main/images/steffen-ortelbach.jpg"
               alt="Steffen Ortelbach, Skateboard Coach"
               className="rounded-lg shadow-md w-full h-auto object-cover aspect-square"
             />
