@@ -74,7 +74,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </div>
             </div>
             
-            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-4 text-sm">
+            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-8 text-sm">
                 <button
                     onClick={() => onNavigate('agb')}
                     className="text-brand-gray hover:text-brand-primary transition-colors duration-300"
@@ -118,9 +118,14 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                     Verein Finden
                 </button>
             </div>
-            <p className="text-sm text-brand-gray">
-              &copy; {new Date().getFullYear()} Sortelba. Alle Rechte vorbehalten.
-            </p>
+            <div className="pt-8 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="flex-shrink-0">
+                    <img src="https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/sortelba-logo.png" alt="Sortelba Logo" className="h-12 w-auto" />
+                </div>
+                <p className="text-sm text-brand-gray text-center sm:text-right">
+                    &copy; {new Date().getFullYear()} Sortelba. Alle Rechte vorbehalten.
+                </p>
+            </div>
           </div>
         </footer>
         <Modal
