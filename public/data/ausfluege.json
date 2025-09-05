@@ -1,0 +1,29 @@
+{
+  "excursionsEnabled": true,
+  "schedule": [
+    {
+      "date": "Samstag, 27. Juli 2024",
+      "location": "Skatepark \"Am O-Weg\", Pforzheim",
+      "status": "Termin vorbei",
+      "isAvailable": false
+    },
+    {
+      "date": "Sonntag, 11. August 2024",
+      "location": "Skatehalle \"Stall\", Tübingen",
+      "status": "Termin vorbei",
+      "isAvailable": false
+    },
+    {
+      "date": "Samstag, 07. September 2024",
+      "location": "Skatepark \"Unter der Brücke\", Heilbronn",
+      "status": "Termin vorbei",
+      "isAvailable": false
+    },
+    {
+      "date": "Samstag, 12. Oktober 2024",
+      "location": "Skatepark \"Europahalle\", Karlsruhe",
+      "status": "Plätze verfügbar",
+      "isAvailable": true
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import type { Page } from '../types';
 import ServiceDetailModal from './ServiceDetailModal';
 import Modal from './Modal';
@@ -9,6 +9,18 @@ interface Service {
     features: string[];
     detailedDescription: string;
     targetAudience: string;
+}
+
+interface Excursion {
+    date: string;
+    location: string;
+    status: string;
+    isAvailable: boolean;
+}
+
+interface ExcursionData {
+    excursionsEnabled: boolean;
+    schedule: Excursion[];
 }
 
 const services: Service[] = [
@@ -147,7 +159,38 @@ interface ServicesPageProps {
 const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
     const [selectedService, setSelectedService] = useState<Service | null>(null);
     const [isScheduleModalOpen, setIsScheduleModalOpen] = useState(false);
+    
+    const [excursionsAvailable, setExcursionsAvailable] = useState(false);
+    const [excursionSchedule, setExcursionSchedule] = useState<Excursion[]>([]);
+    const [isLoadingExcursions, setIsLoadingExcursions] = useState(true);
+    const [excursionsError, setExcursionsError] = useState<string | null>(null);
+    
     const pricingRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const fetchExcursionData = async () => {
+            setIsLoadingExcursions(true);
+            setExcursionsError(null);
+            try {
+                // Cache busting to ensure fresh data
+                const response = await fetch(`/data/ausfluege.json?v=${new Date().getTime()}`);
+                if (!response.ok) {
+                    throw new Error('Netzwerk-Antwort war nicht in Ordnung.');
+                }
+                const data: ExcursionData = await response.json();
+                setExcursionsAvailable(data.excursionsEnabled);
+                setExcursionSchedule(data.schedule);
+            } catch (error) {
+                console.error("Fehler beim Laden der Ausflugsdaten:", error);
+                setExcursionsError("Die Ausflugsdaten konnten nicht geladen werden.");
+                setExcursionsAvailable(false); // Default to false on error
+            } finally {
+                setIsLoadingExcursions(false);
+            }
+        };
+
+        fetchExcursionData();
+    }, []);
 
     const pricingOptions = [
         {
@@ -187,37 +230,15 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
             isFeatured: false,
         }
     ];
-
-    const excursionSchedule = [
-        {
-            date: "Samstag, 27. Juli 2024",
-            location: 'Skatepark "Am O-Weg", Pforzheim',
-            status: "Termin vorbei",
-            statusColor: "text-green-600",
-            isAvailable: false,
-        },
-        {
-            date: "Sonntag, 11. August 2024",
-            location: 'Skatehalle "Stall", Tübingen',
-            status: "Termin vorbei",
-            statusColor: "text-orange-500",
-            isAvailable: false,
-        },
-        {
-            date: "Samstag, 07. September 2024",
-            location: 'Skatepark "Unter der Brücke", Heilbronn',
-            status: "Termin vorbei",
-            statusColor: "text-green-600",
-            isAvailable: false,
-        },
-        {
-            date: "Samstag, 21. September 2024",
-            location: 'Skatepark "Europahalle", Karlsruhe',
-            status: "Termin vorbei",
-            statusColor: "text-red-600",
-            isAvailable: false,
-        },
-    ];
+    
+    const getStatusColor = (status: string) => {
+        const lowerStatus = status.toLowerCase();
+        if (lowerStatus.includes("vorbei")) return "text-gray-500";
+        if (lowerStatus.includes("ausgebucht")) return "text-red-600";
+        if (lowerStatus.includes("wenige")) return "text-orange-500";
+        if (lowerStatus.includes("verfügbar")) return "text-green-600";
+        return "text-brand-gray";
+    };
 
     const handleGoToPricing = () => {
         setSelectedService(null);
@@ -262,42 +283,66 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                 </div>
 
                 <div className="pt-16 border-t border-gray-200">
-                    <div className="text-center">
+                     <div className="text-center">
                         <h2 className="text-3xl md:text-4xl font-black text-brand-dark tracking-tight">Neu: Skatepark Ausflüge</h2>
-                        <p className="mt-4 text-lg text-brand-gray max-w-2xl mx-auto">
-                            Lust auf Abwechslung? Begleite mich auf einen Tagesausflug zu einem anderen Skatepark.
-                        </p>
+                         {!isLoadingExcursions && !excursionsError && (
+                            <p className="mt-4 text-lg text-brand-gray max-w-2xl mx-auto">
+                                {excursionsAvailable
+                                    ? "Lust auf Abwechslung? Begleite mich auf einen Tagesausflug zu einem anderen Skatepark."
+                                    : "Aktuell in der Winterpause. Neue Termine für gemeinsame Ausflüge folgen im Frühling!"
+                                }
+                            </p>
+                         )}
                     </div>
-                    <div className="mt-12 max-w-md mx-auto">
-                        <div className="p-8 rounded-lg border border-gray-200 shadow-sm bg-white transition-all duration-300 flex flex-col text-center">
-                            <h3 className="text-2xl font-bold text-brand-dark">Tagesausflug</h3>
-                            <div className="my-4">
-                                <span className="text-5xl font-black text-brand-dark">€25</span>
-                                <span className="text-brand-gray ml-1">/ Person</span>
+                    <div className="mt-12 max-w-md mx-auto min-h-[300px] flex items-center justify-center">
+                        {isLoadingExcursions ? (
+                             <div className="text-center text-brand-gray">Lade Ausflugs-Infos...</div>
+                        ) : excursionsError ? (
+                            <div className="p-8 rounded-lg border border-dashed border-red-300 bg-red-50 flex flex-col text-center items-center justify-center w-full">
+                                <p className="text-red-600">{excursionsError}</p>
                             </div>
-                            <ul className="space-y-3 mb-8 flex-grow text-left">
-                                {[
-                                    "Transport zum Skatepark & zurück",
-                                    "Maximal 3 Mitfahrer",
-                                    "Gratis Wasser",
-                                    "Freies Skaten in der Gruppe",
-                                    "Verpflegung selbst mitbringen",
-                                ].map((feature, index) => (
-                                    <li key={index} className="flex items-center text-gray-700">
-                                        <svg className="w-5 h-5 mr-3 text-brand-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                                        <span>{feature}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                            <button
-                                onClick={() => setIsScheduleModalOpen(true)}
-                                className="w-full py-3 px-6 font-bold rounded-lg transition-colors duration-300 bg-brand-primary text-white hover:bg-blue-600"
-                            >
-                                Termine ansehen
-                            </button>
-                        </div>
+                        ) : excursionsAvailable ? (
+                            <div className="p-8 rounded-lg border border-gray-200 shadow-sm bg-white transition-all duration-300 flex flex-col text-center w-full">
+                                <h3 className="text-2xl font-bold text-brand-dark">Tagesausflug</h3>
+                                <div className="my-4">
+                                    <span className="text-5xl font-black text-brand-dark">€25</span>
+                                    <span className="text-brand-gray ml-1">/ Person</span>
+                                </div>
+                                <ul className="space-y-3 mb-8 flex-grow text-left">
+                                    {[
+                                        "Transport zum Skatepark & zurück",
+                                        "Maximal 3 Mitfahrer",
+                                        "Gratis Wasser",
+                                        "Freies Skaten in der Gruppe",
+                                        "Verpflegung selbst mitbringen",
+                                    ].map((feature, index) => (
+                                        <li key={index} className="flex items-center text-gray-700">
+                                            <svg className="w-5 h-5 mr-3 text-brand-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                                            <span>{feature}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                                <button
+                                    onClick={() => setIsScheduleModalOpen(true)}
+                                    className="w-full py-3 px-6 font-bold rounded-lg transition-colors duration-300 bg-brand-primary text-white hover:bg-blue-600"
+                                >
+                                    Termine ansehen
+                                </button>
+                            </div>
+                        ) : (
+                            <div className="p-8 rounded-lg border border-dashed border-gray-300 bg-gray-50 flex flex-col text-center items-center justify-center w-full">
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <h3 className="text-2xl font-bold text-brand-dark">Winterpause</h3>
+                                <p className="mt-2 text-brand-gray">
+                                    Aktuell sind keine neuen Ausflüge geplant. Schau im Frühling wieder vorbei!
+                                </p>
+                            </div>
+                        )}
                     </div>
                 </div>
+
 
                  <div className="pt-16 border-t border-gray-200">
                     <div className="text-center">
@@ -428,25 +473,29 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                     <div className="p-6 sm:p-8">
                         <div className="space-y-4 text-brand-gray">
                             <p>Hier findest du die nächsten geplanten Termine. Die Plätze sind auf 3 Mitfahrer begrenzt. Sei schnell und sichere dir deinen Platz!</p>
-                            <ul className="space-y-3 pt-4">
-                                {excursionSchedule.map((trip) => (
-                                    <li key={trip.date} className={`p-4 rounded-lg border flex items-center justify-between ${trip.isAvailable ? 'bg-brand-light border-gray-200' : 'bg-gray-100 border-gray-200'}`}>
-                                        <div>
-                                            <p className={`font-bold ${trip.isAvailable ? 'text-brand-dark' : 'text-gray-500'}`}>{trip.date}</p>
-                                            <p className={trip.isAvailable ? '' : 'text-gray-500'}>{trip.location}</p>
-                                            <p className={`text-sm font-semibold ${trip.statusColor}`}>{trip.status}</p>
-                                        </div>
-                                        <button
-                                            onClick={() => handleExcursionInquiry(trip.date, trip.location)}
-                                            disabled={!trip.isAvailable}
-                                            className="ml-auto flex-shrink-0 px-4 py-2 bg-blue-50 text-brand-primary font-bold rounded-lg hover:bg-blue-100 transition-colors duration-300 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed"
-                                        >
-                                            Anfragen
-                                        </button>
-                                    </li>
-                                ))}
-                            </ul>
-                            <p className="text-sm pt-2">Weitere Termine folgen in Kürze. Schau bald wieder vorbei!</p>
+                            {excursionSchedule.length > 0 ? (
+                                <ul className="space-y-3 pt-4">
+                                    {excursionSchedule.map((trip) => (
+                                        <li key={trip.date} className={`p-4 rounded-lg border flex items-center justify-between ${trip.isAvailable ? 'bg-brand-light border-gray-200' : 'bg-gray-100 border-gray-200'}`}>
+                                            <div>
+                                                <p className={`font-bold ${trip.isAvailable ? 'text-brand-dark' : 'text-gray-500'}`}>{trip.date}</p>
+                                                <p className={trip.isAvailable ? '' : 'text-gray-500'}>{trip.location}</p>
+                                                <p className={`text-sm font-semibold ${getStatusColor(trip.status)}`}>{trip.status}</p>
+                                            </div>
+                                            <button
+                                                onClick={() => handleExcursionInquiry(trip.date, trip.location)}
+                                                disabled={!trip.isAvailable}
+                                                className="ml-auto flex-shrink-0 px-4 py-2 bg-blue-50 text-brand-primary font-bold rounded-lg hover:bg-blue-100 transition-colors duration-300 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed"
+                                            >
+                                                Anfragen
+                                            </button>
+                                        </li>
+                                    ))}
+                                </ul>
+                            ) : (
+                                 <p className="text-center py-8">Aktuell sind keine neuen Ausflüge geplant. Schau bald wieder vorbei!</p>
+                            )}
+                            <p className="text-sm pt-2">Weitere Termine folgen in Kürze.</p>
                         </div>
                     </div>
                 </Modal>
