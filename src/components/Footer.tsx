@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { SOCIAL_LINKS } from '../constants';
 import type { Page } from '../types';
 import Modal from './Modal';
 import TrickRandomizerModal from './TrickRandomizerModal';
@@ -51,20 +50,6 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </div>
             </div>
             
-            <div className="flex justify-center space-x-6 mb-6">
-              {SOCIAL_LINKS.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-brand-gray hover:text-brand-primary transition-colors duration-300"
-                  aria-label={social.name}
-                >
-                  <social.icon className="h-6 w-6" />
-                </a>
-              ))}
-            </div>
             <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-4 text-sm">
                 <button
                     onClick={() => onNavigate('agb')}
