@@ -45,7 +45,7 @@ const App: React.FC = () => {
   };
 
   const backgroundClass = currentPage !== 'home' 
-    ? 'bg-hintergrund bg-no-repeat bg-right-top bg-fixed' 
+    ? 'bg-hintergrund bg-no-repeat bg-right-center bg-fixed' 
     : '';
 
   return (
