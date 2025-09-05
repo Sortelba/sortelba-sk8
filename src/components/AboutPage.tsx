@@ -5,7 +5,7 @@ const AboutPage: React.FC = () => {
   const carouselImages = [
     'https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/steffen-ortelbach.jpg',
     'https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/_DSC3413 2.JPG',
-    'https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/_DSC3413 2.JPG',
+    'https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/_DSC3384 2.JPG',
     'https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/Steffen_bsTail_Rottweil.jpg',
   ];
 
