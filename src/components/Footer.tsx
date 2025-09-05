@@ -57,9 +57,9 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   return (
     <>
         <footer className="bg-white border-t border-gray-200">
-          <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8 text-center">
+          <div className="container mx-auto py-12 px-4 sm:px-6 lg:px-8">
             
-            <div className="mb-10">
+            <div className="mb-10 text-center">
                 <h3 className="text-sm font-semibold text-brand-gray uppercase tracking-wider mb-6">Unterstützt von</h3>
                 <div className="flex justify-center items-center gap-x-8 md:gap-x-12 flex-wrap">
                     <a href="https://www.lifeboy-skateshop.de/?s=lifeboy" target="_blank" rel="noopener noreferrer" title="zu Lifeboy" aria-label="Sponsor Lifeboy" className="opacity-80 hover:opacity-100 transition-opacity duration-300">
@@ -74,55 +74,22 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 </div>
             </div>
             
-            <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 mb-8 text-sm">
-                <button
-                    onClick={() => onNavigate('agb')}
-                    className="text-brand-gray hover:text-brand-primary transition-colors duration-300"
-                >
-                    AGB
-                </button>
-                <button
-                    onClick={() => onNavigate('impressum')}
-                    className="text-brand-gray hover:text-brand-primary transition-colors duration-300"
-                >
-                    Impressum
-                </button>
-                <button
-                    onClick={() => onNavigate('faq')}
-                    className="text-brand-gray hover:text-brand-primary transition-colors duration-300"
-                >
-                    FAQ
-                </button>
-                 <button
-                    onClick={() => setIsVoucherModalOpen(true)}
-                    className="text-brand-gray hover:text-brand-primary transition-colors duration-300"
-                >
-                    Gutscheine
-                </button>
-                <button
-                    onClick={() => setIsMapModalOpen(true)}
-                    className="text-brand-gray hover:text-brand-primary transition-colors duration-300"
-                >
-                    Skate Spots
-                </button>
-                <button
-                    onClick={() => setIsRandomizerModalOpen(true)}
-                    className="text-brand-gray hover:text-brand-primary transition-colors duration-300"
-                >
-                    Trick Randomizer
-                </button>
-                <button
-                    onClick={() => onNavigate('verein-finder')}
-                    className="text-brand-gray hover:text-brand-primary transition-colors duration-300"
-                >
-                    Verein Finden
-                </button>
-            </div>
-            <div className="pt-8 border-t border-gray-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div className="pt-8 mt-8 border-t border-gray-200 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex-shrink-0">
-                    <img src="https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/sortelba-logo.png" alt="Sortelba Logo" className="h-12 w-auto" />
+                    <img src="https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/sortelba-logo.png" alt="Sortelba Logo" className="h-8 w-auto" />
                 </div>
-                <p className="text-sm text-brand-gray text-center sm:text-right">
+                
+                <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm">
+                    <button onClick={() => onNavigate('agb')} className="text-brand-gray hover:text-brand-primary transition-colors duration-300">AGB</button>
+                    <button onClick={() => onNavigate('impressum')} className="text-brand-gray hover:text-brand-primary transition-colors duration-300">Impressum</button>
+                    <button onClick={() => onNavigate('faq')} className="text-brand-gray hover:text-brand-primary transition-colors duration-300">FAQ</button>
+                    <button onClick={() => setIsVoucherModalOpen(true)} className="text-brand-gray hover:text-brand-primary transition-colors duration-300">Gutscheine</button>
+                    <button onClick={() => setIsMapModalOpen(true)} className="text-brand-gray hover:text-brand-primary transition-colors duration-300">Skate Spots</button>
+                    <button onClick={() => setIsRandomizerModalOpen(true)} className="text-brand-gray hover:text-brand-primary transition-colors duration-300">Trick Randomizer</button>
+                    <button onClick={() => onNavigate('verein-finder')} className="text-brand-gray hover:text-brand-primary transition-colors duration-300">Verein Finden</button>
+                </div>
+                
+                <p className="text-sm text-brand-gray text-center md:text-right">
                     &copy; {new Date().getFullYear()} Sortelba. Alle Rechte vorbehalten.
                 </p>
             </div>
