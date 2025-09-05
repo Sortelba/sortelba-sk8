@@ -217,11 +217,47 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
         }
     ];
 
+    const excursionSchedule = [
+        {
+            date: "Samstag, 27. Juli 2024",
+            location: 'Skatepark "Am O-Weg", Pforzheim',
+            status: "Noch 2 Plätze frei",
+            statusColor: "text-green-600",
+            isAvailable: true,
+        },
+        {
+            date: "Sonntag, 11. August 2024",
+            location: 'Skatehalle "Stall", Tübingen',
+            status: "Noch 1 Platz frei",
+            statusColor: "text-orange-500",
+            isAvailable: true,
+        },
+        {
+            date: "Samstag, 07. September 2024",
+            location: 'Skatepark "Unter der Brücke", Heilbronn',
+            status: "Noch 3 Plätze frei",
+            statusColor: "text-green-600",
+            isAvailable: true,
+        },
+        {
+            date: "Samstag, 21. September 2024",
+            location: 'Skatepark "Europahalle", Karlsruhe',
+            status: "Ausgebucht",
+            statusColor: "text-red-600",
+            isAvailable: false,
+        },
+    ];
+
     const handleGoToPricing = () => {
         setSelectedService(null);
         setTimeout(() => {
             pricingRef.current?.scrollIntoView({ behavior: 'smooth' });
         }, 150);
+    };
+
+    const handleExcursionInquiry = (date: string, location: string) => {
+        setIsScheduleModalOpen(false);
+        onNavigate('contact', `Anfrage Ausflug: ${location} am ${date}`);
     };
 
     return (
@@ -394,39 +430,24 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                         <div className="space-y-4 text-brand-gray">
                             <p>Hier findest du die nächsten geplanten Termine. Die Plätze sind auf 3 Mitfahrer begrenzt. Sei schnell und sichere dir deinen Platz!</p>
                             <ul className="space-y-3 pt-4">
-                                <li className="p-4 bg-brand-light rounded-lg border border-gray-200">
-                                    <p className="font-bold text-brand-dark">Samstag, 27. Juli 2024</p>
-                                    <p>Skatepark "Am O-Weg", Pforzheim</p>
-                                    <p className="text-sm font-semibold text-green-600">Noch 2 Plätze frei</p>
-                                </li>
-                                <li className="p-4 bg-brand-light rounded-lg border border-gray-200">
-                                    <p className="font-bold text-brand-dark">Sonntag, 11. August 2024</p>
-                                    <p>Skatehalle "Stall", Tübingen</p>
-                                    <p className="text-sm font-semibold text-orange-500">Noch 1 Platz frei</p>
-                                </li>
-                                <li className="p-4 bg-brand-light rounded-lg border border-gray-200">
-                                    <p className="font-bold text-brand-dark">Samstag, 07. September 2024</p>
-                                    <p>Skatepark "Unter der Brücke", Heilbronn</p>
-                                    <p className="text-sm font-semibold text-green-600">Noch 3 Plätze frei</p>
-                                </li>
-                                 <li className="p-4 bg-gray-100 rounded-lg border border-gray-200">
-                                    <p className="font-bold text-gray-500">Samstag, 21. September 2024</p>
-                                    <p className="text-gray-500">Skatepark "Europahalle", Karlsruhe</p>
-                                    <p className="text-sm font-semibold text-red-600">Ausgebucht</p>
-                                </li>
+                                {excursionSchedule.map((trip) => (
+                                    <li key={trip.date} className={`p-4 rounded-lg border flex items-center justify-between ${trip.isAvailable ? 'bg-brand-light border-gray-200' : 'bg-gray-100 border-gray-200'}`}>
+                                        <div>
+                                            <p className={`font-bold ${trip.isAvailable ? 'text-brand-dark' : 'text-gray-500'}`}>{trip.date}</p>
+                                            <p className={trip.isAvailable ? '' : 'text-gray-500'}>{trip.location}</p>
+                                            <p className={`text-sm font-semibold ${trip.statusColor}`}>{trip.status}</p>
+                                        </div>
+                                        <button
+                                            onClick={() => handleExcursionInquiry(trip.date, trip.location)}
+                                            disabled={!trip.isAvailable}
+                                            className="ml-auto flex-shrink-0 px-4 py-2 bg-blue-50 text-brand-primary font-bold rounded-lg hover:bg-blue-100 transition-colors duration-300 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed"
+                                        >
+                                            Anfragen
+                                        </button>
+                                    </li>
+                                ))}
                             </ul>
                             <p className="text-sm pt-2">Weitere Termine folgen in Kürze. Schau bald wieder vorbei!</p>
-                        </div>
-                        <div className="mt-8 pt-6 border-t border-gray-200">
-                          <button
-                            onClick={() => {
-                                setIsScheduleModalOpen(false);
-                                onNavigate('contact', 'Anfrage: Skatepark Ausflug');
-                            }}
-                            className="w-full py-3 px-6 bg-brand-primary text-white font-bold rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105 duration-300 shadow-lg"
-                          >
-                            Ausflug Anfragen
-                          </button>
                         </div>
                     </div>
                 </Modal>
