@@ -1,16 +1,20 @@
 import React from 'react';
+import ImageCarousel from './ImageCarousel';
 
 const AboutPage: React.FC = () => {
+  const carouselImages = [
+    'https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/steffen-ortelbach.jpg',
+    'https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/_DSC3413 2.JPG',
+    'https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/_DSC3413 2.JPG',
+    'https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/Steffen_bsTail_Rottweil.jpg',
+  ];
+
   return (
     <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
       <div className="bg-white p-8 sm:p-12 rounded-lg border border-gray-200 shadow-sm">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 items-center">
           <div className="md:col-span-1">
-            <img
-              src="https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/refs/heads/main/images/steffen-ortelbach.jpg"
-              alt="Steffen Ortelbach, Skateboard Coach"
-              className="rounded-lg shadow-md w-full h-auto object-cover aspect-square"
-            />
+             <ImageCarousel images={carouselImages} />
           </div>
           <div className="md:col-span-2">
               <h2 className="text-3xl md:text-4xl font-black text-brand-dark tracking-tight">Über Mich</h2>
