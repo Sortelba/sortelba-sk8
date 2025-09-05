@@ -44,8 +44,12 @@ const App: React.FC = () => {
     }
   };
 
+  const backgroundClass = currentPage !== 'home' 
+    ? 'bg-hintergrund bg-no-repeat bg-right-top bg-fixed' 
+    : '';
+
   return (
-    <div className="flex flex-col min-h-screen bg-brand-light font-sans text-brand-dark">
+    <div className={`flex flex-col min-h-screen bg-brand-light font-sans text-brand-dark ${backgroundClass}`}>
       <Header currentPage={currentPage} onNavigate={handleSetPage} />
       <main className="flex-grow">
         <div key={currentPage} className="page-transition-enter">

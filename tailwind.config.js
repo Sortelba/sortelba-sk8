@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      backgroundImage: {
+        'hintergrund': "url('https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/healflip.svg')",
+      },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
       },
