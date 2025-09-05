@@ -76,7 +76,7 @@ const services: Service[] = [
         targetAudience: "Skater aller Level, die bei einem bestimmten Trick feststecken und gezieltes Feedback benötigen."
     },
     {
-        title: "Skater für Produktionen",
+        title: "Collaboration",
         description: "Buchbar für Foto- und Video-Produktionen, Events oder Werbekampagnen. Bringe authentischen Skate-Lifestyle in dein Projekt.",
         features: [
             "Buchbar für Foto- & Videodrehs",
@@ -440,7 +440,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                         </div>
                         <div className="mt-8">
                             <button
-                                onClick={() => onNavigate('contact', 'Anfrage: Skater für Produktion')}
+                                onClick={() => onNavigate('contact', 'Anfrage: Collaboration')}
                                 className="w-full px-10 py-4 bg-brand-primary text-white font-bold rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105 duration-300 shadow-lg"
                             >
                                 Projekt Anfragen
@@ -449,7 +449,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                     </div>
                 </div>
 
-                <div className="pt-16 border-t border-gray-200">
+                <div id="gutscheine" className="pt-16 border-t border-gray-200">
                      <div className="text-center">
                         <h2 className="text-3xl md:text-4xl font-black text-brand-dark tracking-tight">Gutscheine Verschenken</h2>
                         <p className="mt-4 text-lg text-brand-gray max-w-2xl mx-auto">

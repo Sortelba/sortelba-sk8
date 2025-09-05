@@ -69,6 +69,17 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 >
                     FAQ
                 </button>
+                 <button
+                    onClick={() => {
+                        onNavigate('services');
+                        setTimeout(() => {
+                            document.getElementById('gutscheine')?.scrollIntoView({ behavior: 'smooth' });
+                        }, 450);
+                    }}
+                    className="text-brand-gray hover:text-brand-primary transition-colors duration-300"
+                >
+                    Gutscheine
+                </button>
                 <button
                     onClick={() => setIsMapModalOpen(true)}
                     className="text-brand-gray hover:text-brand-primary transition-colors duration-300"
