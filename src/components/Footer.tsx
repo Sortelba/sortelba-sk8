@@ -4,7 +4,7 @@ import Modal from './Modal';
 import TrickRandomizerModal from './TrickRandomizerModal';
 
 interface FooterProps {
-  onNavigate: (page: Page) => void;
+  onNavigate: (page: Page, subject?: string) => void;
 }
 
 // Fictional Sponsor Logos as SVG Components
@@ -26,9 +26,52 @@ const SponsorNollie: React.FC<{ className?: string }> = ({ className }) => (
     </svg>
 );
 
+const VoucherCard: React.FC<{
+    value: string;
+    description: string;
+    details: string;
+    onNavigate: (page: Page, subject?: string) => void;
+}> = ({ value, description, details, onNavigate }) => (
+    <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-lg hover:border-brand-primary transition-all duration-300 transform hover:-translate-y-1 text-center flex flex-col justify-between">
+        <div>
+            <div className="mb-4">
+                <span className="text-5xl font-black text-brand-dark">{value}</span>
+            </div>
+            <h3 className="text-xl font-bold text-brand-primary">{description}</h3>
+            <p className="mt-2 text-brand-gray">{details}</p>
+        </div>
+        <button
+            onClick={() => onNavigate('contact', `Gutscheinanfrage: ${description}`)}
+            className="mt-8 w-full py-3 px-6 bg-brand-primary text-white font-bold rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105 duration-300 shadow-lg"
+        >
+            Gutschein Anfragen
+        </button>
+    </div>
+);
+
+
 const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
     const [isMapModalOpen, setIsMapModalOpen] = useState(false);
     const [isRandomizerModalOpen, setIsRandomizerModalOpen] = useState(false);
+    const [isVoucherModalOpen, setIsVoucherModalOpen] = useState(false);
+
+    const voucherOptions = [
+        {
+            value: "€30",
+            description: "Für eine Einzelstunde",
+            details: "Das perfekte Geschenk, um die Welt des Skateboardens zu entdecken."
+        },
+        {
+            value: "€55",
+            description: "Für zwei Einzelstunden, 5€ gespart!",
+            details: "Ideal, um erste Grundlagen zu festigen und Fortschritte zu sehen."
+        },
+        {
+            value: "€120",
+            description: "Für einen 5er Block",
+            details: "Das Rundum-sorglos-Paket für alle, die es ernst meinen."
+        }
+    ];
 
   return (
     <>
@@ -70,12 +113,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                     FAQ
                 </button>
                  <button
-                    onClick={() => {
-                        onNavigate('services');
-                        setTimeout(() => {
-                            document.getElementById('gutscheine')?.scrollIntoView({ behavior: 'smooth' });
-                        }, 450);
-                    }}
+                    onClick={() => setIsVoucherModalOpen(true)}
                     className="text-brand-gray hover:text-brand-primary transition-colors duration-300"
                 >
                     Gutscheine
@@ -121,6 +159,25 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             isOpen={isRandomizerModalOpen}
             onClose={() => setIsRandomizerModalOpen(false)}
         />
+        <Modal
+            isOpen={isVoucherModalOpen}
+            onClose={() => setIsVoucherModalOpen(false)}
+            title="Gutscheine Verschenken"
+        >
+             <div className="p-6 sm:p-8 bg-brand-light h-full">
+                <div className="text-center">
+                    <p className="text-lg text-brand-gray max-w-2xl mx-auto">
+                        Ein unvergessliches Erlebnis verschenken. Wähle den passenden Wert und mache jemandem eine Freude.
+                    </p>
+                </div>
+                <div className="mt-8 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {voucherOptions.map(option => <VoucherCard key={option.value} {...option} onNavigate={(page, subject) => {
+                        setIsVoucherModalOpen(false);
+                        onNavigate(page, subject);
+                    }} />)}
+                </div>
+            </div>
+        </Modal>
     </>
   );
 };
