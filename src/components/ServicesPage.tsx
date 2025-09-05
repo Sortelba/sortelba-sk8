@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import type { Page } from '../types';
 import ServiceDetailModal from './ServiceDetailModal';
+import Modal from './Modal';
 
 interface Service {
     title: string;
@@ -43,11 +44,24 @@ const services: Service[] = [
         features: [
             "Videoanalyse deiner Tricks",
             "Individueller Trainingsplan",
-            "Fortgeschrittene Flip- und Grab-Tricks",,
+            "Fortgeschrittene Flip- und Grab-Tricks",
+            "Vert- und Bowl-Skating",
             "Wettkampfvorbereitung"
         ],
         detailedDescription: "Unser Profi-Coaching ist ein 1-zu-1-Training, das komplett auf deine Wünsche und Ziele zugeschnitten ist. Egal ob du einen bestimmten Trick lernen, dich auf einen Wettbewerb vorbereiten oder einfach deine Technik verfeinern möchtest – wir erstellen einen individuellen Plan für dich. Mithilfe von Videoanalysen decken wir Verbesserungspotenziale auf und arbeiten gezielt an deinen Schwächen.",
         targetAudience: "Ambitionierte und erfahrene Skater."
+    },
+    {
+        title: "Skatepark Ausflüge",
+        description: "Entdecke mit mir neue Skateparks! Wir fahren in kleinen Gruppen zu den besten Spots in der Umgebung. Kein Kurs, nur pures Skateboarding.",
+        features: [
+            "Gemeinsamer Tagesausflug",
+            "Transport zum Skatepark & zurück",
+            "Freies Skaten in der Gruppe (max. 3 Mitfahrer)",
+            "Neue Spots und Leute kennenlernen"
+        ],
+        detailedDescription: "Du hast Lust, neue Skateparks zu erkunden, aber keine Mitfahrgelegenheit oder Motivation alleine zu fahren? Dann komm mit mir auf einen Tagesausflug! Wir fahren in einer kleinen Gruppe von bis zu 4 Personen zu einem Skatepark meiner Wahl. Vor Ort gibt es keinen Unterricht, wir skaten einfach zusammen, haben eine gute Zeit und motivieren uns gegenseitig. Es ist die perfekte Gelegenheit, neue Spots zu sehen und andere Skater kennenzulernen. Verpflegung ist selbst mitzubringen.",
+        targetAudience: "Alle Skater, die sicher fahren können und Lust auf einen entspannten Tag in einem anderen Skatepark haben."
     }
 ];
 
@@ -89,15 +103,38 @@ const PriceCard: React.FC<{
             {features.map((feature, index) => (
                 <li key={index} className="flex items-center text-gray-700">
                     <svg className="w-5 h-5 mr-3 text-brand-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
-                        <span>{feature}</span>
-                    </li>
-                ))}
-            </ul>
+                    <span>{feature}</span>
+                </li>
+            ))}
+        </ul>
         <button
             onClick={() => onNavigate('contact', `Buchungsanfrage: ${title}`)}
             className={`w-full py-3 px-6 font-bold rounded-lg transition-colors duration-300 ${isFeatured ? 'bg-brand-primary text-white hover:bg-blue-600' : 'bg-blue-50 text-brand-primary hover:bg-blue-100'}`}
         >
             Jetzt Buchen
+        </button>
+    </div>
+);
+
+const VoucherCard: React.FC<{
+    value: string;
+    description: string;
+    details: string;
+    onNavigate: (page: Page, subject?: string) => void;
+}> = ({ value, description, details, onNavigate }) => (
+    <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-sm hover:shadow-lg hover:border-brand-primary transition-all duration-300 transform hover:-translate-y-1 text-center flex flex-col justify-between">
+        <div>
+            <div className="mb-4">
+                <span className="text-5xl font-black text-brand-dark">{value}</span>
+            </div>
+            <h3 className="text-xl font-bold text-brand-primary">{description}</h3>
+            <p className="mt-2 text-brand-gray">{details}</p>
+        </div>
+        <button
+            onClick={() => onNavigate('contact', `Gutscheinanfrage: ${description}`)}
+            className="mt-8 w-full py-3 px-6 bg-brand-primary text-white font-bold rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105 duration-300 shadow-lg"
+        >
+            Gutschein Anfragen
         </button>
     </div>
 );
@@ -108,6 +145,7 @@ interface ServicesPageProps {
 
 const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
     const [selectedService, setSelectedService] = useState<Service | null>(null);
+    const [isScheduleModalOpen, setIsScheduleModalOpen] = useState(false);
     const pricingRef = useRef<HTMLDivElement>(null);
 
     const pricingOptions = [
@@ -140,12 +178,30 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
             price: "€25",
             priceDetails: "/ Pers. / 90 Min.",
             features: [
-                "Lernen mit Freunden (bis zu 5 Pers.)",
+                "Lernen mit Freunden (2-4 Pers.)",
                 "Gemeinsamer Spaß & Motivation",
                 "Günstigerer Preis pro Person",
                 "Eigenes Equipment erforderlich",
             ],
             isFeatured: false,
+        }
+    ];
+
+    const voucherOptions = [
+        {
+            value: "€45",
+            description: "Für eine Einzelstunde",
+            details: "Das perfekte Geschenk, um die Welt des Skateboardens zu entdecken."
+        },
+        {
+            value: "€90",
+            description: "Für zwei Einzelstunden",
+            details: "Ideal, um erste Grundlagen zu festigen und Fortschritte zu sehen."
+        },
+        {
+            value: "€200",
+            description: "Für einen 5er Block",
+            details: "Das Rundum-sorglos-Paket für alle, die es ernst meinen."
         }
     ];
 
@@ -166,7 +222,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                             Egal ob blutiger Anfänger oder erfahrener Ripper, wir haben den passenden Kurs für dich. Klicke auf eine Leistung für mehr Details.
                         </p>
                     </div>
-                    <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+                    <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
                         {services.map(service => (
                             <ServiceCard key={service.title} service={service} onClick={() => setSelectedService(service)} />
                         ))}
@@ -184,6 +240,43 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
                     {pricingOptions.map((option, index) => <PriceCard key={`${option.title}-${index}`} {...option} onNavigate={onNavigate} />)}
+                </div>
+
+                <div className="pt-16 border-t border-gray-200">
+                    <div className="text-center">
+                        <h2 className="text-3xl md:text-4xl font-black text-brand-dark tracking-tight">Neu: Skatepark Ausflüge</h2>
+                        <p className="mt-4 text-lg text-brand-gray max-w-2xl mx-auto">
+                            Lust auf Abwechslung? Begleite mich auf einen Tagesausflug zu einem anderen Skatepark.
+                        </p>
+                    </div>
+                    <div className="mt-12 max-w-md mx-auto">
+                        <div className="p-8 rounded-lg border border-gray-200 shadow-sm bg-white transition-all duration-300 flex flex-col text-center">
+                            <h3 className="text-2xl font-bold text-brand-dark">Tagesausflug</h3>
+                            <div className="my-4">
+                                <span className="text-5xl font-black text-brand-dark">€15</span>
+                                <span className="text-brand-gray ml-1">/ Person</span>
+                            </div>
+                            <ul className="space-y-3 mb-8 flex-grow text-left">
+                                {[
+                                    "Transport zum Skatepark & zurück",
+                                    "Maximal 3 Mitfahrer",
+                                    "Freies Skaten in der Gruppe",
+                                    "Verpflegung selbst mitbringen",
+                                ].map((feature, index) => (
+                                    <li key={index} className="flex items-center text-gray-700">
+                                        <svg className="w-5 h-5 mr-3 text-brand-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>{feature}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <button
+                                onClick={() => setIsScheduleModalOpen(true)}
+                                className="w-full py-3 px-6 font-bold rounded-lg transition-colors duration-300 bg-brand-primary text-white hover:bg-blue-600"
+                            >
+                                Termine ansehen
+                            </button>
+                        </div>
+                    </div>
                 </div>
 
                 <div className="bg-brand-dark text-white p-8 sm:p-12 rounded-lg shadow-xl text-center">
@@ -219,6 +312,19 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                         </button>
                     </div>
                 </div>
+
+                <div className="pt-16 border-t border-gray-200">
+                     <div className="text-center">
+                        <h2 className="text-3xl md:text-4xl font-black text-brand-dark tracking-tight">Gutscheine Verschenken</h2>
+                        <p className="mt-4 text-lg text-brand-gray max-w-2xl mx-auto">
+                            Ein unvergessliches Erlebnis verschenken. Wähle den passenden Wert und mache jemandem eine Freude.
+                        </p>
+                    </div>
+
+                    <div className="mt-12 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        {voucherOptions.map(option => <VoucherCard key={option.value} {...option} onNavigate={onNavigate} />)}
+                    </div>
+                </div>
             </div>
 
             {selectedService && (
@@ -227,6 +333,54 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                     onClose={() => setSelectedService(null)}
                     onGoToPricing={handleGoToPricing}
                 />
+            )}
+
+            {isScheduleModalOpen && (
+                 <Modal
+                    isOpen={isScheduleModalOpen}
+                    onClose={() => setIsScheduleModalOpen(false)}
+                    title="Kommende Skatepark Ausflüge"
+                >
+                    <div className="p-6 sm:p-8">
+                        <div className="space-y-4 text-brand-gray">
+                            <p>Hier findest du die nächsten geplanten Termine. Die Plätze sind auf 3 Mitfahrer begrenzt. Sei schnell und sichere dir deinen Platz!</p>
+                            <ul className="space-y-3 pt-4">
+                                <li className="p-4 bg-brand-light rounded-lg border border-gray-200">
+                                    <p className="font-bold text-brand-dark">Samstag, 27. Juli 2024</p>
+                                    <p>Skatepark "Am O-Weg", Pforzheim</p>
+                                    <p className="text-sm font-semibold text-green-600">Noch 2 Plätze frei</p>
+                                </li>
+                                <li className="p-4 bg-brand-light rounded-lg border border-gray-200">
+                                    <p className="font-bold text-brand-dark">Sonntag, 11. August 2024</p>
+                                    <p>Skatehalle "Stall", Tübingen</p>
+                                    <p className="text-sm font-semibold text-orange-500">Noch 1 Platz frei</p>
+                                </li>
+                                <li className="p-4 bg-brand-light rounded-lg border border-gray-200">
+                                    <p className="font-bold text-brand-dark">Samstag, 07. September 2024</p>
+                                    <p>Skatepark "Unter der Brücke", Heilbronn</p>
+                                    <p className="text-sm font-semibold text-green-600">Noch 3 Plätze frei</p>
+                                </li>
+                                 <li className="p-4 bg-gray-100 rounded-lg border border-gray-200">
+                                    <p className="font-bold text-gray-500">Samstag, 21. September 2024</p>
+                                    <p className="text-gray-500">Skatepark "Europahalle", Karlsruhe</p>
+                                    <p className="text-sm font-semibold text-red-600">Ausgebucht</p>
+                                </li>
+                            </ul>
+                            <p className="text-sm pt-2">Weitere Termine folgen in Kürze. Schau bald wieder vorbei!</p>
+                        </div>
+                        <div className="mt-8 pt-6 border-t border-gray-200">
+                          <button
+                            onClick={() => {
+                                setIsScheduleModalOpen(false);
+                                onNavigate('contact', 'Anfrage: Skatepark Ausflug');
+                            }}
+                            className="w-full py-3 px-6 bg-brand-primary text-white font-bold rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105 duration-300 shadow-lg"
+                          >
+                            Ausflug Anfragen
+                          </button>
+                        </div>
+                    </div>
+                </Modal>
             )}
         </div>
     );
