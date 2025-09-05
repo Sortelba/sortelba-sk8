@@ -14,7 +14,7 @@ interface Service {
 const services: Service[] = [
     {
         title: "Einsteigerkurs",
-        description: "Der perfekte Start für alle, die noch nie auf einem Skateboard standen. Wir bringen dir die Grundlagen sicher und mit viel Spaß bei.",
+        description: "Der perfekte Start für alle, die noch nie auf einem Skateboard standen. Ich bringe dir die Grundlagen sicher und mit viel Spaß bei.",
         features: [
             "Sicherer Stand und Gleichgewicht",
             "Richtiges Abstoßen (Pushen)",
@@ -22,12 +22,12 @@ const services: Service[] = [
             "Sicheres Anhalten",
             "Materialkunde und Board-Setup"
         ],
-        detailedDescription: "In diesem Kurs lernst du alles von Grund auf. Wir starten mit den absoluten Basics, wie dem sicheren Stehen auf dem Board und dem richtigen Abstoßen. Unser Ziel ist es, dir Selbstvertrauen zu geben und eine solide Grundlage zu schaffen. Am Ende des Kurses wirst du in der Lage sein, entspannt durch die Gegend zu cruisen und erste kleine Hindernisse zu meistern.",
+        detailedDescription: "In diesem Kurs lernst du alles von Grund auf. Ich starte mit den absoluten Basics, wie dem sicheren Stehen auf dem Board und dem richtigen Abstoßen. Mein Ziel ist es, dir Selbstvertrauen zu geben und eine solide Grundlage zu schaffen. Am Ende des Kurses wirst du in der Lage sein, entspannt durch die Gegend zu cruisen und erste kleine Hindernisse zu meistern.",
         targetAudience: "Absolute Anfänger ohne Vorkenntnisse."
     },
     {
         title: "Fortgeschrittenenkurs",
-        description: "Du fährst schon sicher und willst die ersten Tricks lernen? Hier bist du richtig. Wir heben deine Skills auf das nächste Level.",
+        description: "Du fährst schon sicher und willst die ersten Tricks lernen? Hier bist du richtig. Ich hebe deine Skills auf das nächste Level.",
         features: [
             "Der Ollie – die Grundlage aller Tricks",
             "Einfache Flips (Shove-it, Kickflip)",
@@ -35,12 +35,12 @@ const services: Service[] = [
             "Erste Grinds und Slides",
             "Sicherheit im Skatepark"
         ],
-        detailedDescription: "Dieser Kurs baut auf deinen Grundkenntnissen auf. Wir konzentrieren uns auf den Ollie, den wichtigsten Trick im Skateboarding, und wagen uns an erste Flip-Tricks. Außerdem zeigen wir dir, wie du dich sicher in einem Skatepark bewegst und erste Rampen fährst. Ziel ist es, dein Trick-Repertoire zu erweitern und dir mehr Sicherheit auf unterschiedlichem Terrain zu geben.",
+        detailedDescription: "Dieser Kurs baut auf deinen Grundkenntnissen auf. Ich konzentriere mich auf den Ollie, den wichtigsten Trick im Skateboarding, und wagen uns an erste Flip-Tricks. Außerdem zeige ich dir, wie du dich sicher in einem Skatepark bewegst und erste Rampen fährst. Ziel ist es, dein Trick-Repertoire zu erweitern und dir mehr Sicherheit auf unterschiedlichem Terrain zu geben.",
         targetAudience: "Skater, die sicher fahren, lenken und anhalten können."
     },
     {
         title: "Profi-Coaching",
-        description: "Individuelles Training für erfahrene Skater. Wir analysieren deine Technik und arbeiten gezielt an deinen Wunsch-Tricks.",
+        description: "Individuelles Training für erfahrene Skater. Ich analysiere deine Technik und arbeite gezielt an deinen Wunsch-Tricks.",
         features: [
             "Videoanalyse deiner Tricks",
             "Individueller Trainingsplan",
@@ -48,7 +48,7 @@ const services: Service[] = [
             "Vert- und Bowl-Skating",
             "Wettkampfvorbereitung"
         ],
-        detailedDescription: "Unser Profi-Coaching ist ein 1-zu-1-Training, das komplett auf deine Wünsche und Ziele zugeschnitten ist. Egal ob du einen bestimmten Trick lernen, dich auf einen Wettbewerb vorbereiten oder einfach deine Technik verfeinern möchtest – wir erstellen einen individuellen Plan für dich. Mithilfe von Videoanalysen decken wir Verbesserungspotenziale auf und arbeiten gezielt an deinen Schwächen.",
+        detailedDescription: "Mein Profi-Coaching ist ein 1-zu-1-Training, das komplett auf deine Wünsche und Ziele zugeschnitten ist. Egal ob du einen bestimmten Trick lernen, dich auf einen Wettbewerb vorbereiten oder einfach deine Technik verfeinern möchtest – ich erstelle einen individuellen Plan für dich. Mithilfe von Videoanalysen decke ich Verbesserungspotenziale auf und arbeite gezielt an deinen Schwächen.",
         targetAudience: "Ambitionierte und erfahrene Skater."
     },
     {
@@ -60,7 +60,7 @@ const services: Service[] = [
             "Freies Skaten in der Gruppe (max. 3 Mitfahrer)",
             "Neue Spots und Leute kennenlernen"
         ],
-        detailedDescription: "Du hast Lust, neue Skateparks zu erkunden, aber keine Mitfahrgelegenheit oder Motivation alleine zu fahren? Dann komm mit mir auf einen Tagesausflug! Wir fahren in einer kleinen Gruppe von bis zu 4 Personen zu einem Skatepark meiner Wahl. Vor Ort gibt es keinen Unterricht, wir skaten einfach zusammen, haben eine gute Zeit und motivieren uns gegenseitig. Es ist die perfekte Gelegenheit, neue Spots zu sehen und andere Skater kennenzulernen. Verpflegung ist selbst mitzubringen.",
+        detailedDescription: "Du hast Lust, neue Skateparks zu erkunden, aber keine Mitfahrgelegenheit oder Motivation alleine zu fahren? Dann komm mit mir auf einen Tagesausflug! Ich fahre mit einer kleinen Gruppe von bis zu 4 Personen zu einem Skatepark meiner Wahl. Vor Ort gibt es keinen Unterricht, wir skaten einfach zusammen, haben eine gute Zeit und motivieren uns gegenseitig. Es ist die perfekte Gelegenheit, neue Spots zu sehen und andere Skater kennenzulernen. Verpflegung ist selbst mitzubringen.",
         targetAudience: "Alle Skater, die sicher fahren können und Lust auf einen entspannten Tag in einem anderen Skatepark haben."
     },
     {
@@ -236,9 +236,9 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
             <div className="space-y-12">
                 <div>
                     <div className="text-center">
-                        <h2 className="text-3xl md:text-4xl font-black text-brand-dark tracking-tight">Unsere Leistungen</h2>
+                        <h2 className="text-3xl md:text-4xl font-black text-brand-dark tracking-tight">Meine Leistungen</h2>
                         <p className="mt-4 text-lg text-brand-gray max-w-2xl mx-auto">
-                            Egal ob blutiger Anfänger oder erfahrener Ripper, wir haben den passenden Kurs für dich. Klicke auf eine Leistung für mehr Details.
+                            Egal ob blutiger Anfänger oder erfahrener Ripper, ich habe den passenden Kurs für dich. Klicke auf eine Leistung für mehr Details.
                         </p>
                     </div>
                     <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">

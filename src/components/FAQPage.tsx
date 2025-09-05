@@ -48,19 +48,19 @@ const FAQPage: React.FC = () => {
     },
     {
       question: 'Für welches Alter sind die Kurse geeignet?',
-      answer: 'Skateboarding ist für alle da! Ich bieten Kurse für Kinder ab 5 Jahren, Jugendliche und Erwachsene an. Es ist nie zu spät, anzufangen.',
+      answer: 'Skateboarding ist für alle da! Ich biete Kurse für Kinder ab 5 Jahren, Jugendliche und Erwachsene an. Es ist nie zu spät, anzufangen.',
     },
     {
       question: 'Finden die Kurse bei schlechtem Wetter statt?',
-      answer: 'Unsere Kurse finden draußen statt. Bei starkem Regen oder Unwetter wird der Kurs verschoben. Wir informieren dich rechtzeitig per E-Mail oder SMS über einen Ersatztermin.',
+      answer: 'Meine Kurse finden draußen statt. Bei starkem Regen oder Unwetter wird der Kurs verschoben. Ich informiere dich rechtzeitig per E-Mail oder SMS über einen Ersatztermin.',
     },
     {
       question: 'Wie sicher ist der Unterricht?',
-      answer: 'Sicherheit hat oberste Priorität. Schutzausrüstung ist für alle Anfänger Pflicht. Unsere Coaches sind erfahren und achten darauf, dass du die Techniken Schritt für Schritt und in einer sicheren Umgebung lernst.',
+      answer: 'Sicherheit hat oberste Priorität. Schutzausrüstung ist für alle Anfänger Pflicht. Als erfahrener Coach achte ich darauf, dass du die Techniken Schritt für Schritt und in einer sicheren Umgebung lernst.',
     },
     {
       question: 'Kann ich eine Probestunde buchen?',
-      answer: 'Ja, der Einzelkurs eignet sich perfekt als Probestunde. Du kannst eine einzelne 60-minütige Session buchen, um zu sehen, ob Skateboarding das Richtige für dich ist und wie dir unser Coaching-Stil gefällt.',
+      answer: 'Ja, der Einzelkurs eignet sich perfekt als Probestunde. Du kannst eine einzelne 60-minütige Session buchen, um zu sehen, ob Skateboarding das Richtige für dich ist und wie dir mein Coaching-Stil gefällt.',
     },
   ];
   
@@ -73,7 +73,7 @@ const FAQPage: React.FC = () => {
       <div className="text-center mb-12">
         <h2 className="text-3xl md:text-4xl font-black text-brand-dark tracking-tight">Häufig gestellte Fragen</h2>
         <p className="mt-4 text-lg text-brand-gray max-w-2xl mx-auto">
-          Hier findest du Antworten auf die wichtigsten Fragen rund um unsere Skateschule.
+          Hier findest du Antworten auf die wichtigsten Fragen rund um meine Skateschule.
         </p>
       </div>
       <div className="bg-white p-8 rounded-lg border border-gray-200 shadow-sm">
