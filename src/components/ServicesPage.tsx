@@ -62,6 +62,18 @@ const services: Service[] = [
         ],
         detailedDescription: "Du hast Lust, neue Skateparks zu erkunden, aber keine Mitfahrgelegenheit oder Motivation alleine zu fahren? Dann komm mit mir auf einen Tagesausflug! Wir fahren in einer kleinen Gruppe von bis zu 4 Personen zu einem Skatepark meiner Wahl. Vor Ort gibt es keinen Unterricht, wir skaten einfach zusammen, haben eine gute Zeit und motivieren uns gegenseitig. Es ist die perfekte Gelegenheit, neue Spots zu sehen und andere Skater kennenzulernen. Verpflegung ist selbst mitzubringen.",
         targetAudience: "Alle Skater, die sicher fahren können und Lust auf einen entspannten Tag in einem anderen Skatepark haben."
+    },
+    {
+        title: "Video Analyse",
+        description: "Du kommst bei einem Trick nicht weiter? Schick mir ein Video und erhalte professionelles Feedback, um ihn endlich zu landen.",
+        features: [
+            "Detaillierte Fehleranalyse",
+            "Persönliches Feedback per Video/Text",
+            "Konkrete Verbesserungsvorschläge",
+            "Standortunabhängig & flexibel"
+        ],
+        detailedDescription: "Manchmal ist es nur eine Kleinigkeit, die den Unterschied macht. Mit der Videoanalyse biete ich dir die Möglichkeit, standortunabhängig an deinen Skills zu feilen. Du schickst mir einfach ein Video von deinen Versuchen (z.B. per WhatsApp oder E-Mail), und ich nehme mir Zeit, deine Technik, dein Timing und deine Körperhaltung genau zu analysieren. Du erhältst von mir ein detailliertes Feedback mit konkreten Tipps und Übungen, damit du den Trick bald sicher stehen kannst.",
+        targetAudience: "Skater aller Level, die bei einem bestimmten Trick feststecken und gezieltes Feedback benötigen."
     }
 ];
 
@@ -222,7 +234,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                             Egal ob blutiger Anfänger oder erfahrener Ripper, wir haben den passenden Kurs für dich. Klicke auf eine Leistung für mehr Details.
                         </p>
                     </div>
-                    <div className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                    <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
                         {services.map(service => (
                             <ServiceCard key={service.title} service={service} onClick={() => setSelectedService(service)} />
                         ))}
@@ -274,6 +286,43 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                                 className="w-full py-3 px-6 font-bold rounded-lg transition-colors duration-300 bg-brand-primary text-white hover:bg-blue-600"
                             >
                                 Termine ansehen
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                 <div className="pt-16 border-t border-gray-200">
+                    <div className="text-center">
+                        <h2 className="text-3xl md:text-4xl font-black text-brand-dark tracking-tight">Online: Video Analyse</h2>
+                        <p className="mt-4 text-lg text-brand-gray max-w-2xl mx-auto">
+                            Hol dir professionelles Feedback zu deinen Tricks, egal wo du bist.
+                        </p>
+                    </div>
+                    <div className="mt-12 max-w-md mx-auto">
+                        <div className="p-8 rounded-lg border border-gray-200 shadow-sm bg-white transition-all duration-300 flex flex-col text-center">
+                            <h3 className="text-2xl font-bold text-brand-dark">Trick-Analyse</h3>
+                            <div className="my-4">
+                                <span className="text-5xl font-black text-brand-dark">€25</span>
+                                <span className="text-brand-gray ml-1">/ pro Video</span>
+                            </div>
+                            <ul className="space-y-3 mb-8 flex-grow text-left">
+                                {[
+                                    "Analyse deines Tricks via Video",
+                                    "Individuelles, detailliertes Feedback",
+                                    "Konkrete Tipps zur Fehlerkorrektur",
+                                    "Antwort in der Regel innerhalb von 48h",
+                                ].map((feature, index) => (
+                                    <li key={index} className="flex items-center text-gray-700">
+                                        <svg className="w-5 h-5 mr-3 text-brand-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path></svg>
+                                        <span>{feature}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                            <button
+                                onClick={() => onNavigate('contact', 'Anfrage: Video Analyse')}
+                                className="w-full py-3 px-6 font-bold rounded-lg transition-colors duration-300 bg-blue-50 text-brand-primary hover:bg-blue-100"
+                            >
+                                Analyse Anfragen
                             </button>
                         </div>
                     </div>
