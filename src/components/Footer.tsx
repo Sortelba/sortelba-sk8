@@ -7,25 +7,6 @@ interface FooterProps {
   onNavigate: (page: Page, subject?: string) => void;
 }
 
-// Fictional Sponsor Logos as SVG Components
-const SponsorSkatebolt: React.FC<{ className?: string }> = ({ className }) => (
-    <svg className={className} viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-        <text x="0" y="20" fontFamily="Arial, sans-serif" fontSize="28" fontWeight="bold" letterSpacing="1">LIFEBOY</text>
-    </svg>
-);
-
-const SponsorUrbanEdge: React.FC<{ className?: string }> = ({ className }) => (
-    <svg className={className} viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-        <text x="0" y="20" fontFamily="Arial, sans-serif" fontSize="28" fontWeight="900">KOLOSS</text>
-    </svg>
-);
-
-const SponsorNollie: React.FC<{ className?: string }> = ({ className }) => (
-    <svg className={className} viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
-        <text x="0" y="20" fontFamily="Arial, sans-serif" fontSize="28" fontWeight="bold">SOLIDE</text>
-    </svg>
-);
-
 const VoucherCard: React.FC<{
     value: string;
     description: string;
@@ -81,14 +62,14 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             <div className="mb-10">
                 <h3 className="text-sm font-semibold text-brand-gray uppercase tracking-wider mb-6">Unterstützt von</h3>
                 <div className="flex justify-center items-center gap-x-8 md:gap-x-12 flex-wrap">
-                    <a href="https://www.lifeboy-skateshop.de/?s=lifeboy" target="_blank" rel="noopener noreferrer" aria-label="Sponsor Skatebolt" className="text-gray-400 hover:text-brand-dark transition-colors duration-300">
-                        <SponsorSkatebolt className="h-6" />
+                    <a href="https://www.lifeboy-skateshop.de/?s=lifeboy" target="_blank" rel="noopener noreferrer" aria-label="Sponsor Lifeboy" className="opacity-80 hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/lifeboy-logo.png" alt="Lifeboy Logo" className="h-8 w-auto" />
                     </a>
-                    <a href="https://blackheavenshop.com/Beerrings-Classic-Edition" target="_blank" rel="noopener noreferrer" aria-label="Sponsor UrbanEdge" className="text-gray-400 hover:text-brand-dark transition-colors duration-300">
-                        <SponsorUrbanEdge className="h-7" />
+                    <a href="https://blackheavenshop.com/Beerrings-Classic-Edition" target="_blank" rel="noopener noreferrer" aria-label="Sponsor Koloss" className="opacity-80 hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/koloss-logo.png" alt="Koloss Logo" className="h-8 w-auto" />
                     </a>
-                    <a href="https://solide.myspreadshop.de/" target="_blank" rel="noopener noreferrer" aria-label="Sponsor Solide" className="text-gray-400 hover:text-brand-dark transition-colors duration-300">
-                        <SponsorNollie className="h-8" />
+                    <a href="https://solide.myspreadshop.de/" target="_blank" rel="noopener noreferrer" aria-label="Sponsor Solide" className="opacity-80 hover:opacity-100 transition-opacity duration-300">
+                        <img src="https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/solide-logo.png" alt="Solide Logo" className="h-8 w-auto" />
                     </a>
                 </div>
             </div>
