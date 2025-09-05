@@ -166,6 +166,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
     const [excursionsError, setExcursionsError] = useState<string | null>(null);
     
     const pricingRef = useRef<HTMLDivElement>(null);
+    const excursionPricingRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const fetchExcursionData = async () => {
@@ -241,9 +242,15 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
     };
 
     const handleGoToPricing = () => {
+        const serviceTitle = selectedService?.title;
         setSelectedService(null);
+        
         setTimeout(() => {
-            pricingRef.current?.scrollIntoView({ behavior: 'smooth' });
+            if (serviceTitle === 'Skatepark Ausflüge') {
+                excursionPricingRef.current?.scrollIntoView({ behavior: 'smooth' });
+            } else {
+                pricingRef.current?.scrollIntoView({ behavior: 'smooth' });
+            }
         }, 150);
     };
 
@@ -282,7 +289,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                     {pricingOptions.map((option, index) => <PriceCard key={`${option.title}-${index}`} {...option} onNavigate={onNavigate} />)}
                 </div>
 
-                <div className="pt-16 border-t border-gray-200">
+                <div ref={excursionPricingRef} className="pt-16 border-t border-gray-200">
                      <div className="text-center">
                         <h2 className="text-3xl md:text-4xl font-black text-brand-dark tracking-tight">Neu: Skatepark Ausflüge</h2>
                          {!isLoadingExcursions && !excursionsError && (
