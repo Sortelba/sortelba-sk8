@@ -167,6 +167,9 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
     
     const pricingRef = useRef<HTMLDivElement>(null);
     const excursionPricingRef = useRef<HTMLDivElement>(null);
+    const videoAnalyseRef = useRef<HTMLDivElement>(null);
+    const profiCoachingRef = useRef<HTMLDivElement>(null);
+    const collaborationRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
         const fetchExcursionData = async () => {
@@ -248,6 +251,12 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
         setTimeout(() => {
             if (serviceTitle === 'Skatepark Ausflüge') {
                 excursionPricingRef.current?.scrollIntoView({ behavior: 'smooth' });
+            } else if (serviceTitle === 'Video Analyse') {
+                videoAnalyseRef.current?.scrollIntoView({ behavior: 'smooth' });
+            } else if (serviceTitle === 'Profi-Coaching') {
+                profiCoachingRef.current?.scrollIntoView({ behavior: 'smooth' });
+            } else if (serviceTitle === 'Collaboration') {
+                collaborationRef.current?.scrollIntoView({ behavior: 'smooth' });
             } else {
                 pricingRef.current?.scrollIntoView({ behavior: 'smooth' });
             }
@@ -341,9 +350,9 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-12 w-12 text-gray-400 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                 </svg>
-                                <h3 className="text-2xl font-bold text-brand-dark">Winterpause</h3>
+                                <h3 className="text-2xl font-bold text-brand-dark">Sorry</h3>
                                 <p className="mt-2 text-brand-gray">
-                                    Aktuell sind keine neuen Ausflüge geplant. Schau im Frühling wieder vorbei!
+                                    Aktuell sind keine Ausflüge geplant. Schau später wieder vorbei!
                                 </p>
                             </div>
                         )}
@@ -351,7 +360,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                 </div>
 
 
-                 <div className="pt-16 border-t border-gray-200">
+                 <div ref={videoAnalyseRef} className="pt-16 border-t border-gray-200">
                     <div className="text-center">
                         <h2 className="text-3xl md:text-4xl font-black text-brand-dark tracking-tight">Online: Video Analyse</h2>
                         <p className="mt-4 text-lg text-brand-gray max-w-2xl mx-auto">
@@ -388,7 +397,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                     </div>
                 </div>
 
-                <div className="bg-brand-dark text-white p-8 sm:p-12 rounded-lg shadow-xl text-center">
+                <div ref={profiCoachingRef} className="bg-brand-dark text-white p-8 sm:p-12 rounded-lg shadow-xl text-center">
                     <h3 className="text-3xl font-black tracking-tight text-brand-primary">Profi-Coaching</h3>
                     <p className="mt-4 text-lg text-gray-300 max-w-2xl mx-auto">
                         Für ambitionierte Skater, die ihre Skills auf Wettbewerbsniveau heben wollen.
@@ -422,7 +431,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                     </div>
                 </div>
 
-                <div className="pt-16 border-t border-gray-200">
+                <div ref={collaborationRef} className="pt-16 border-t border-gray-200">
                      <div className="text-center">
                         <h2 className="text-3xl md:text-4xl font-black text-brand-dark tracking-tight">Collaboration</h2>
                         <p className="mt-4 text-lg text-brand-gray max-w-2xl mx-auto">
