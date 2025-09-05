@@ -74,6 +74,18 @@ const services: Service[] = [
         ],
         detailedDescription: "Manchmal ist es nur eine Kleinigkeit, die den Unterschied macht. Mit der Videoanalyse biete ich dir die Möglichkeit, standortunabhängig an deinen Skills zu feilen. Du schickst mir einfach ein Video von deinen Versuchen (z.B. per WhatsApp oder E-Mail), und ich nehme mir Zeit, deine Technik, dein Timing und deine Körperhaltung genau zu analysieren. Du erhältst von mir ein detailliertes Feedback mit konkreten Tipps und Übungen, damit du den Trick bald sicher stehen kannst.",
         targetAudience: "Skater aller Level, die bei einem bestimmten Trick feststecken und gezieltes Feedback benötigen."
+    },
+    {
+        title: "Skater für Produktionen",
+        description: "Buchbar für Foto- und Video-Produktionen, Events oder Werbekampagnen. Bringe authentischen Skate-Lifestyle in dein Projekt.",
+        features: [
+            "Buchbar für Foto- & Videodrehs",
+            "Kreative Tricks & Lines nach Wunsch",
+            "Flexible Zusammenarbeit mit Teams",
+            "Authentischer Skate-Lifestyle"
+        ],
+        detailedDescription: "Du suchst einen erfahrenen Skateboarder für dein nächstes Projekt? Egal ob für einen Werbespot, ein Musikvideo, ein Fotoshooting oder ein Event – ich bringe die nötige Erfahrung und Kreativität mit. Ich arbeite flexibel mit deinem Team zusammen, um die perfekten Aufnahmen zu kreieren und deinem Projekt einen authentischen Skate-Vibe zu verleihen. Kontaktiere mich, um die Details deines Projekts zu besprechen.",
+        targetAudience: "Fotografen, Filmproduktionen, Werbeagenturen, Marken und Eventveranstalter, die einen professionellen Skateboarder benötigen."
     }
 ];
 
@@ -395,6 +407,45 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                         >
                             Jetzt Anfragen
                         </button>
+                    </div>
+                </div>
+
+                <div className="pt-16 border-t border-gray-200">
+                     <div className="text-center">
+                        <h2 className="text-3xl md:text-4xl font-black text-brand-dark tracking-tight">Skater für Produktionen</h2>
+                        <p className="mt-4 text-lg text-brand-gray max-w-2xl mx-auto">
+                           Authentizität und Action für dein Foto- oder Videoprojekt.
+                        </p>
+                    </div>
+                    <div className="mt-12 max-w-2xl mx-auto bg-white p-8 sm:p-10 rounded-lg border border-gray-200 shadow-sm text-left">
+                        <ul className="space-y-4">
+                            {[
+                                { title: "Für Foto- & Videoproduktionen", description: "Dynamische Action-Shots oder authentische Lifestyle-Bilder für Werbekampagnen, Musikvideos oder Social Media." },
+                                { title: "Kreative Umsetzung", description: "Ich entwickle gemeinsam mit dir kreative Ideen für Tricks und Lines, die perfekt zu deiner Vision passen." },
+                                { title: "Flexible Zusammenarbeit", description: "Professionelle und unkomplizierte Kooperation mit Fotografen, Filmteams und Agenturen." },
+                                { title: "Authentischer Lifestyle", description: "Verleihe deiner Marke oder Produktion den echten Vibe der Skate-Kultur." }
+                            ].map((feature, index) => (
+                                <li key={index} className="flex items-start">
+                                    <svg className="w-6 h-6 mr-4 text-brand-primary flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                                    <div>
+                                        <h4 className="font-bold text-brand-dark">{feature.title}</h4>
+                                        <p className="text-brand-gray">{feature.description}</p>
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
+                         <div className="mt-10 text-center">
+                            <p className="text-4xl font-bold text-brand-dark">Auf Anfrage</p>
+                            <p className="text-gray-500 mt-1">Individuell nach Projektumfang.</p>
+                        </div>
+                        <div className="mt-8">
+                            <button
+                                onClick={() => onNavigate('contact', 'Anfrage: Skater für Produktion')}
+                                className="w-full px-10 py-4 bg-brand-primary text-white font-bold rounded-lg hover:bg-blue-600 transition-transform transform hover:scale-105 duration-300 shadow-lg"
+                            >
+                                Projekt Anfragen
+                            </button>
+                        </div>
                     </div>
                 </div>
 
