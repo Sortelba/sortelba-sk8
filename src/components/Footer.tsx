@@ -63,13 +63,13 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 <h3 className="text-sm font-semibold text-brand-gray uppercase tracking-wider mb-6">Unterstützt von</h3>
                 <div className="flex justify-center items-center gap-x-8 md:gap-x-12 flex-wrap">
                     <a href="https://www.lifeboy-skateshop.de/?s=lifeboy" target="_blank" rel="noopener noreferrer" aria-label="Sponsor Lifeboy" className="opacity-80 hover:opacity-100 transition-opacity duration-300">
-                        <img src="https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/Lifeboy-Drwaing-04.png" alt="Lifeboy Logo" className="h-8 w-auto" />
+                        <img src="https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/Lifeboy-Drwaing-04.png" alt="Lifeboy Logo" className="h-10 w-auto" />
                     </a>
                     <a href="https://blackheavenshop.com/Beerrings-Classic-Edition" target="_blank" rel="noopener noreferrer" aria-label="Sponsor Koloss" className="opacity-80 hover:opacity-100 transition-opacity duration-300">
-                        <img src="https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/koloss-logo.png" alt="Koloss Logo" className="h-8 w-auto" />
+                        <img src="https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/koloss-logo.png" alt="Koloss Logo" className="h-10 w-auto" />
                     </a>
                     <a href="https://solide.myspreadshop.de/" target="_blank" rel="noopener noreferrer" aria-label="Sponsor Solide" className="opacity-80 hover:opacity-100 transition-opacity duration-300">
-                        <img src="https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/solide-logo.png" alt="Solide Logo" className="h-8 w-auto" />
+                        <img src="https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/solide-logo.png" alt="Solide Logo" className="h-10 w-auto" />
                     </a>
                 </div>
             </div>
