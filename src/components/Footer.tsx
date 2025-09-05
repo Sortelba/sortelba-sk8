@@ -76,7 +76,7 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
             
             <div className="pt-8 mt-8 border-t border-gray-200 flex flex-col md:flex-row items-center justify-between gap-6">
                 <div className="flex-shrink-0">
-                    <img src="https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/sortelba-logo.png" alt="Sortelba Logo" className="h-8 w-auto" />
+                    <img src="https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/sortelba-logo.png" alt="Sortelba Logo" className="h-16 w-auto" />
                 </div>
                 
                 <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm">
