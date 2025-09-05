@@ -1,5 +1,6 @@
 import React from 'react';
 import ImageCarousel from './ImageCarousel';
+import { SOCIAL_LINKS } from '../constants';
 
 const AboutPage: React.FC = () => {
   const carouselImages = [
@@ -29,6 +30,23 @@ const AboutPage: React.FC = () => {
                   <p>
                       Mein Unterrichts-Stil ist geduldig, motivierend und auf Sicherheit bedacht. Wir gehen Schritt für Schritt vor, damit du dich jederzeit wohlfühlst und solide Grundlagen entwickelst. Egal, ob du fünf oder fünfundfünfzig bist – es ist nie zu spät, mit dem Skaten anzufangen!
                   </p>
+              </div>
+              <div className="mt-8 pt-6 border-t border-gray-200">
+                <h3 className="text-lg font-semibold text-brand-dark">Folge mir auf:</h3>
+                <div className="mt-4 flex items-center space-x-6">
+                  {SOCIAL_LINKS.map((social) => (
+                    <a
+                      key={social.name}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-brand-gray hover:text-brand-primary transition-colors duration-300"
+                      aria-label={social.name}
+                    >
+                      <social.icon className="h-8 w-8" />
+                    </a>
+                  ))}
+                </div>
               </div>
           </div>
         </div>

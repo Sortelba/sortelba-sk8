@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { Page } from '../types';
 import Modal from './Modal';
 import TrickRandomizerModal from './TrickRandomizerModal';
+import { SOCIAL_LINKS } from '../constants';
 
 interface FooterProps {
   onNavigate: (page: Page, subject?: string) => void;
@@ -72,6 +73,21 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                         <img src="https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/solide-logo.png" alt="Solide Logo" className="h-10 w-auto" />
                     </a>
                 </div>
+            </div>
+
+            <div className="flex justify-center space-x-6 mb-8">
+              {SOCIAL_LINKS.map((social) => (
+                <a
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-brand-gray hover:text-brand-primary transition-colors duration-300"
+                  aria-label={social.name}
+                >
+                  <social.icon className="h-6 w-6" />
+                </a>
+              ))}
             </div>
             
             <div className="pt-8 mt-8 border-t border-gray-200 flex flex-col md:flex-row items-center justify-between gap-6">

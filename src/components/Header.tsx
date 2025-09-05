@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import type { Page } from '../types';
-import { SOCIAL_LINKS } from '../constants';
 
 interface HeaderProps {
   currentPage: Page;
@@ -48,28 +47,12 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
             </button>
           </div>
           <div className="hidden md:block">
-            <div className="flex items-center">
-                <div className="flex items-baseline space-x-1">
-                {navItems.map((item) => (
-                    <NavLink key={item.page} page={item.page} currentPage={currentPage} onNavigate={onNavigate}>
-                    {item.label}
-                    </NavLink>
-                ))}
-                </div>
-                <div className="ml-6 flex items-center space-x-4">
-                    {SOCIAL_LINKS.map((social) => (
-                        <a
-                        key={social.name}
-                        href={social.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-brand-gray hover:text-brand-primary transition-colors duration-300"
-                        aria-label={social.name}
-                        >
-                        <social.icon className="h-5 w-5" />
-                        </a>
-                    ))}
-                </div>
+            <div className="ml-10 flex items-baseline space-x-1">
+              {navItems.map((item) => (
+                <NavLink key={item.page} page={item.page} currentPage={currentPage} onNavigate={onNavigate}>
+                  {item.label}
+                </NavLink>
+              ))}
             </div>
           </div>
           <div className="md:hidden flex items-center">
@@ -112,20 +95,6 @@ const Header: React.FC<HeaderProps> = ({ currentPage, onNavigate }) => {
                 </button>
             ))}
           </div>
-          <div className="border-t border-gray-200 px-4 py-4 flex justify-center items-center space-x-6">
-                {SOCIAL_LINKS.map((social) => (
-                    <a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-brand-gray hover:text-brand-primary transition-colors duration-300"
-                    aria-label={social.name}
-                    >
-                    <social.icon className="h-6 w-6" />
-                    </a>
-                ))}
-            </div>
         </div>
       )}
     </header>
