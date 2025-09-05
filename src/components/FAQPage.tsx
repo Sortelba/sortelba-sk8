@@ -44,11 +44,11 @@ const FAQPage: React.FC = () => {
   const faqs = [
     {
       question: 'Was muss ich zur ersten Stunde mitbringen?',
-      answer: 'Du brauchst nur bequeme Kleidung und flache Schuhe (am besten Skateschuhe). Ein Skateboard und Schutzausrüstung (Helm, Knie-, Ellbogen- und Handgelenkschoner) kannst du für 5€ bei uns leihen. Wenn du eigene Ausrüstung hast, bring sie gerne mit!',
+      answer: 'Du brauchst nur bequeme Kleidung und flache Schuhe (am besten Skateschuhe). Ein Skateboard und Schutzausrüstung (Helm, Knie-, Ellbogen- und Handgelenkschoner).',
     },
     {
       question: 'Für welches Alter sind die Kurse geeignet?',
-      answer: 'Skateboarding ist für alle da! Wir bieten Kurse für Kinder ab 5 Jahren, Jugendliche und Erwachsene an. Es ist nie zu spät, anzufangen.',
+      answer: 'Skateboarding ist für alle da! Ich bieten Kurse für Kinder ab 5 Jahren, Jugendliche und Erwachsene an. Es ist nie zu spät, anzufangen.',
     },
     {
       question: 'Finden die Kurse bei schlechtem Wetter statt?',
