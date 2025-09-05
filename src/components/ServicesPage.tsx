@@ -213,17 +213,17 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
 
     const voucherOptions = [
         {
-            value: "€45",
+            value: "€30",
             description: "Für eine Einzelstunde",
             details: "Das perfekte Geschenk, um die Welt des Skateboardens zu entdecken."
         },
         {
-            value: "€90",
-            description: "Für zwei Einzelstunden",
+            value: "€55",
+            description: "Für zwei Einzelstunden, 5€ gespart!",
             details: "Ideal, um erste Grundlagen zu festigen und Fortschritte zu sehen."
         },
         {
-            value: "€200",
+            value: "€120",
             description: "Für einen 5er Block",
             details: "Das Rundum-sorglos-Paket für alle, die es ernst meinen."
         }
@@ -412,7 +412,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
 
                 <div className="pt-16 border-t border-gray-200">
                      <div className="text-center">
-                        <h2 className="text-3xl md:text-4xl font-black text-brand-dark tracking-tight">Skater für Produktionen</h2>
+                        <h2 className="text-3xl md:text-4xl font-black text-brand-dark tracking-tight">Collaboration</h2>
                         <p className="mt-4 text-lg text-brand-gray max-w-2xl mx-auto">
                            Authentizität und Action für dein Foto- oder Videoprojekt.
                         </p>

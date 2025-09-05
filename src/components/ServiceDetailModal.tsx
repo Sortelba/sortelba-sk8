@@ -22,21 +22,21 @@ const ServiceDetailModal: React.FC<ServiceDetailModalProps> = ({ service, onClos
     <Modal isOpen={true} onClose={onClose} title={service.title}>
       <div className="p-6 sm:p-8 space-y-6">
         <div>
-          <h3 className="text-lg font-semibold text-brand-dark">Kursbeschreibung</h3>
+          <h3 className="text-lg font-semibold text-brand-dark">Beschreibung</h3>
           <p className="mt-2 text-brand-gray">
             {service.detailedDescription}
           </p>
         </div>
         
         <div>
-          <h3 className="text-lg font-semibold text-brand-dark">Für wen ist der Kurs geeignet?</h3>
+          <h3 className="text-lg font-semibold text-brand-dark">Für wen ist das Angebot geeignet?</h3>
           <p className="mt-2 text-brand-gray">
             {service.targetAudience}
           </p>
         </div>
 
         <div>
-            <h3 className="text-lg font-semibold text-brand-dark">Lerninhalte im Überblick</h3>
+            <h3 className="text-lg font-semibold text-brand-dark">Angebot Inhalt im Überblick</h3>
             <ul className="mt-4 space-y-2">
                 {service.features.map((feature, index) => (
                     <li key={index} className="flex items-start text-gray-700">
