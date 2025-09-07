@@ -13,13 +13,16 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
   return (
     <>
       <div className="relative w-full h-[65vh] min-h-[450px] max-h-[700px] shadow-2xl overflow-hidden">
-        <iframe
-          className="absolute top-0 left-0 w-full h-full pointer-events-none"
-          src="https://www.youtube.com/embed/eXpaiGy1GSo?autoplay=1&mute=1&loop=1&playlist=eXpaiGy1GSo&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0"
-          frameBorder="0"
-          allow="autoplay; encrypted-media"
-          title="Hintergrundvideo Skateboard"
-        ></iframe>
+        <video
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          src="https://raw.githubusercontent.com/Sortelba/assets-sortelba.de/main/images/skate-video-sorty.mp4"
+          autoPlay
+          loop
+          muted
+          playsInline
+        >
+          Dein Browser unterstützt das Video-Tag nicht.
+        </video>
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 text-center p-4">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-tight drop-shadow-lg">
             Lerne Skateboard Fahren
