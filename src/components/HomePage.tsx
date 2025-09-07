@@ -14,7 +14,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
     <>
       <div className="relative w-full h-[65vh] min-h-[450px] max-h-[700px] shadow-2xl overflow-hidden">
         <iframe
-          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          className="absolute top-0 left-0 w-full h-full pointer-events-none"
           src="https://www.youtube.com/embed/eXpaiGy1GSo?autoplay=1&mute=1&loop=1&playlist=eXpaiGy1GSo&controls=0&showinfo=0&modestbranding=1&iv_load_policy=3&rel=0"
           frameBorder="0"
           allow="autoplay; encrypted-media"
