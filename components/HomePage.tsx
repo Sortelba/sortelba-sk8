@@ -15,7 +15,7 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
       <div className="relative w-full h-[65vh] min-h-[450px] max-h-[700px] shadow-2xl">
         <video
           className="absolute top-0 left-0 w-full h-full object-cover"
-          src="/public/assets/skate-video.mp4"
+          src="https://www.youtube.com/watch?v=qgxiNpdyrbY&ab_channel=sortelba"
           autoPlay
           loop
           muted

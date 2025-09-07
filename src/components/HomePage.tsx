@@ -12,17 +12,14 @@ const HomePage: React.FC<HomePageProps> = ({ onNavigate }) => {
 
   return (
     <>
-      <div className="relative w-full h-[65vh] min-h-[450px] max-h-[700px] shadow-2xl">
-        <video
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          src="/assets/skate-video.mp4"
-          autoPlay
-          loop
-          muted
-          playsInline
-        >
-          Dein Browser unterstützt das Video-Tag nicht.
-        </video>
+      <div className="relative w-full h-[65vh] min-h-[450px] max-h-[700px] shadow-2xl overflow-hidden">
+        <iframe
+          className="absolute top-1/2 left-1/2 min-w-full min-h-full w-auto h-auto transform -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+          src="https://www.youtube.com/embed/qgxiNpdyrbY?autoplay=1&mute=1&loop=1&playlist=qgxiNpdyrbY&controls=0&showinfo=0&modestbranding=1&playsinline=1&disablekb=1&rel=0"
+          frameBorder="0"
+          allow="autoplay; encrypted-media"
+          title="Hintergrundvideo Skateboard"
+        ></iframe>
         <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/50 text-center p-4">
           <h1 className="text-4xl sm:text-5xl md:text-7xl font-black text-white uppercase tracking-tighter leading-tight drop-shadow-lg">
             Lerne Skateboard Fahren
