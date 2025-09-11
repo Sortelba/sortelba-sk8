@@ -1,5 +1,5 @@
 {
-  "excursionsEnabled": true,
+  "excursionsEnabled": false,
   "schedule": [
     {
       "date": "Samstag, 27. Juli 2024",
@@ -9,14 +9,14 @@
     },
     {
       "date": "Samstag, 07. September 2024",
-      "location": "Skatepark \"Unter der BrÃƒÂ¼cke\", Heilbronn",
+      "location": "Skatepark \"Unter der BrÃƒÆ’Ã‚Â¼cke\", Heilbronn",
       "status": "Termin vorbei",
       "isAvailable": false
     },
     {
       "date": "Donnerstag, 12. August 2026",
       "location": "Schweiz Wintertur block 36",
-      "status": "3 Pl�tze",
+      "status": "3 Plätze",
       "isAvailable": true
     }
   ]
