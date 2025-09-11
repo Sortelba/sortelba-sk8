@@ -1,5 +1,5 @@
 {
-  "excursionsEnabled": false,
+  "excursionsEnabled": true,
   "schedule": [
     {
       "date": "Samstag, 27. Juli 2024",
@@ -16,8 +16,14 @@
     {
       "date": "Donnerstag, 12. August 2026",
       "location": "Schweiz Wintertur block 36",
-      "status": "3 Pl√§tze",
+      "status": "2 Pl‰tze",
       "isAvailable": true
+    },
+    {
+      "date": "Samstag, 18. Oktober 2025",
+      "location": "Frankfurt",
+      "status": "Ausgebucht",
+      "isAvailable": false
     }
   ]
 }
