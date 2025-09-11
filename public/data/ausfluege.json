@@ -18,6 +18,12 @@
       "location": "Skatepark \"Unter der Brücke\", Heilbronn",
       "status": "Termin vorbei",
       "isAvailable": false
+    },
+    {
+      "date": "Samstag 13.September 2025",
+      "location": "Stuttgart",
+      "status": "offen",
+      "availableSeats": 1
     }
   ]
 }
