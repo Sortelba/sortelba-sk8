@@ -321,8 +321,8 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
                             <div className="p-8 rounded-lg border border-gray-200 shadow-sm bg-white transition-all duration-300 flex flex-col text-center w-full">
                                 <h3 className="text-2xl font-bold text-brand-dark">Tagesausflug</h3>
                                 <div className="my-4">
-                                    <span className="text-5xl font-black text-brand-dark">€25</span>
-                                    <span className="text-brand-gray ml-1">/ Person</span>
+                                    <span className="text-5xl font-black text-brand-dark">Auf Anfrage</span>
+                                    <p className="text-brand-gray mt-1">Preis je nach Ziel</p>
                                 </div>
                                 <ul className="space-y-3 mb-8 flex-grow text-left">
                                     {[
