@@ -1,23 +1,23 @@
 {
-  "excursionsEnabled": false,
+  "excursionsEnabled": true,
   "schedule": [
     {
       "date": "Samstag, 27. Juli 2024",
       "location": "Skatepark \"Am O-Weg\", Pforzheim",
       "status": "Termin vorbei",
-      "isAvailable": false
+      "availableSeats": 0
     },
     {
       "date": "Samstag, 07. September 2024",
       "location": "Skatepark \"Unter der Brücke\", Heilbronn",
       "status": "Termin vorbei",
-      "isAvailable": false
+      "availableSeats": 0
     },
     {
       "date": "Samstag 13.September 2025",
       "location": "Stuttgart",
       "status": "offen",
-      "isAvailable": true
+      "availableSeats": 3
     }
   ]
 }
