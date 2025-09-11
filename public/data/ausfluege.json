@@ -4,20 +4,20 @@
     {
       "date": "Samstag, 27. Juli 2024",
       "location": "Skatepark \"Am O-Weg\", Pforzheim",
-      "status": "Plätze verfügbar",
-      "availableSeats": 1
+      "status": "PlÃ¤tze verfÃ¼gbar",
+      "isAvailable": true
     },
     {
       "date": "Samstag, 07. September 2024",
-      "location": "Skatepark \"Unter der BrÃ¼cke\", Heilbronn",
+      "location": "Skatepark \"Unter der BrÃƒÂ¼cke\", Heilbronn",
       "status": "Termin vorbei",
-      "availableSeats": 0
+      "isAvailable": false
     },
     {
       "date": "Samstag 13.September 2025",
       "location": "Stuttgart",
-      "status": "offen",
-      "availableSeats": 3
+      "status": "3 Plätze",
+      "isAvailable": true
     }
   ]
 }
