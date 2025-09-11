@@ -18,12 +18,6 @@
       "location": "Skatepark \"Unter der Brücke\", Heilbronn",
       "status": "Termin vorbei",
       "isAvailable": false
-    },
-    {
-      "date": "Samstag, 12. Oktober 2024",
-      "location": "Skatepark \"Europahalle\", Karlsruhe",
-      "status": "Plätze verfügbar",
-      "isAvailable": true
     }
   ]
 }
