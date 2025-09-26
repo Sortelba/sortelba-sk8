@@ -223,7 +223,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
         },
         {
             title: "Gruppenkurs",
-            price: "€25",
+            price: "€30",
             priceDetails: "/ Pers. / 90 Min.",
             features: [
                 "Lernen mit Freunden (2-4 Pers.)",
