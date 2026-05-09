@@ -44,7 +44,7 @@ const FAQPage: React.FC = () => {
   const faqs = [
     {
       question: 'Was muss ich zur ersten Stunde mitbringen?',
-      answer: 'Du brauchst nur bequeme Kleidung und flache Schuhe (am besten Skateschuhe). Ein Skateboard und Schutzausrüstung (Helm, Knie-, Ellbogen- und Handgelenkschoner).',
+      answer: 'Du brauchst nur bequeme Kleidung und flache Schuhe (am besten Skateschuhe). Ein Skateboard und Schutzausrüstung (Helm, Knie-, Ellbogen- und Handgelenkschoner). Nach Absprache kann auch Ausrüstung mit ausgelihen werden für einen Aufpreis.',
     },
     {
       question: 'Für welches Alter sind die Kurse geeignet?',
@@ -52,15 +52,15 @@ const FAQPage: React.FC = () => {
     },
     {
       question: 'Finden die Kurse bei schlechtem Wetter statt?',
-      answer: 'Meine Kurse finden draußen statt. Bei starkem Regen oder Unwetter wird der Kurs verschoben. Ich informiere dich rechtzeitig per E-Mail oder SMS über einen Ersatztermin.',
+      answer: 'Meine Kurse finden draußen statt. Bei starkem Regen oder Unwetter wird der Kurs verschoben. Ich informiere dich rechtzeitig per E-Mail oder Massenger Dienste über einen Ersatztermin.',
     },
     {
       question: 'Wie sicher ist der Unterricht?',
-      answer: 'Sicherheit hat oberste Priorität. Schutzausrüstung ist für alle Anfänger Pflicht. Als erfahrener Coach achte ich darauf, dass du die Techniken Schritt für Schritt und in einer sicheren Umgebung lernst.',
+      answer: 'Sicherheit hat oberste Priorität. Schutzausrüstung ist für alle Anfänger Pflicht bzw. zu empfehlen! Vorallem Knieschoner und Helm!. Als erfahrener Coach achte ich darauf, dass du die Techniken Schritt für Schritt und in einer sicheren Umgebung lernst.',
     },
     {
       question: 'Kann ich eine Probestunde buchen?',
-      answer: 'Ja, der Einzelkurs eignet sich perfekt als Probestunde. Du kannst eine einzelne 60-minütige Session buchen, um zu sehen, ob Skateboarding das Richtige für dich ist und wie dir mein Coaching-Stil gefällt.',
+      answer: 'Ja, der Einzelkurs eignet sich perfekt als Probestunde. Du kannst eine einzelne 90-minütige Session buchen, um zu sehen, ob Skateboarding das Richtige für dich ist und wie dir mein Coaching-Stil gefällt.',
     },
   ];
   
