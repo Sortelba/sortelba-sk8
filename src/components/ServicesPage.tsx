@@ -211,7 +211,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
         },
         {
             title: "5er Karte",
-            price: "€120",
+            price: "€160",
             priceDetails: "/ 5x 90 Min.",
             features: [
                 "1 Kurs geschenkt (5 zum Preis von 4)",
