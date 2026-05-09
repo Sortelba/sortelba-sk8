@@ -199,7 +199,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
     const pricingOptions = [
         {
             title: "Einzelkurs",
-            price: "€50",
+            price: "40",
             priceDetails: "/ 90 Min.",
             features: [
                 "Individueller Einzelunterricht",
@@ -211,7 +211,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
         },
         {
             title: "5er Karte",
-            price: "€200",
+            price: "€120",
             priceDetails: "/ 5x 90 Min.",
             features: [
                 "1 Kurs geschenkt (5 zum Preis von 4)",
@@ -223,7 +223,7 @@ const ServicesPage: React.FC<ServicesPageProps> = ({ onNavigate }) => {
         },
         {
             title: "Gruppenkurs",
-            price: "€30",
+            price: "€25",
             priceDetails: "/ Pers. / 90 Min.",
             features: [
                 "Lernen mit Freunden (2-4 Pers.)",
