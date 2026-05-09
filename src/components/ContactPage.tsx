@@ -55,7 +55,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ initialSubject = '' }) => {
     setSubmitError('');
 
     const serviceID = 'service_sxq9s8g';
-    const templateID = 'template_xgvny18';
+    const templateID = 'template_1jcqhx3';
     const publicKey = 'VXhP2N2ZcXkMG6-WC';
 
     const templateParams = {
