@@ -39,18 +39,18 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
 
     const voucherOptions = [
         {
-            value: "€30",
+            value: "€40",
             description: "Für eine Einzelstunde",
             details: "Das perfekte Geschenk, um die Welt des Skateboardens zu entdecken."
         },
         {
-            value: "€55",
-            description: "Für zwei Einzelstunden, 5€ gespart!",
+            value: "€70",
+            description: "Für zwei Einzelstunden, 10€ gespart!",
             details: "Ideal, um erste Grundlagen zu festigen und Fortschritte zu sehen."
         },
         {
-            value: "€120",
-            description: "Für einen 5er Block",
+            value: "€160",
+            description: "Für eine 5er Block-Karte",
             details: "Das Rundum-sorglos-Paket für alle, die es ernst meinen."
         }
     ];
