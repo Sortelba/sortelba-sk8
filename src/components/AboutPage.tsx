@@ -22,10 +22,10 @@ const AboutPage: React.FC = () => {
               <p className="mt-4 text-brand-primary font-semibold text-lg">Dein Coach mit Leidenschaft</p>
               <div className="mt-6 space-y-4 text-brand-gray leading-relaxed">
                   <p>
-                      Hi, ich bin Steffen! Seit über 20 Jahren ist das Skateboard meine größte Leidenschaft. Was als Hobby begann, wurde schnell zu meinem Lebensinhalt. Ich habe an unzähligen Wettbewerben teilgenommen und die Skate-Szenen in verschiedenen Städten Europas erlebt.
+                     Hi, ich bin Steffen! Seit über 20 Jahren ist das Skateboard meine größte Leidenschaft. Was als Hobby begann, wurde schnell zu meinem Lebensinhalt.
                   </p>
                   <p>
-                      Meine wahre Erfüllung habe ich jedoch darin gefunden, mein Wissen und meine Begeisterung weiterzugeben. Es gibt nichts Schöneres, als das Leuchten in den Augen meiner Schüler zu sehen, wenn sie ihren ersten Trick stehen.
+                      Meine wahre Erfüllung habe ich jedoch darin gefunden, mein Wissen und meine Begeisterung weiterzugeben. Dabei profitieren meine Schüler nicht nur von meiner Erfahrung auf dem Board, sondern auch von meiner über 10-jährigen Tätigkeit im sozialen und pädagogischen Bereich. Diese berufliche Erfahrung hilft mir dabei, individuell auf jeden Einzelnen einzugehen und die richtige Balance zwischen Herausforderung und Förderung zu finden. Es gibt nichts Schöneres, als das Leuchten in den Augen meiner Schüler zu sehen, wenn sie ihren ersten Trick stehen.
                   </p>
                   <p>
                       Mein Unterrichts-Stil ist geduldig, motivierend und auf Sicherheit bedacht. Wir gehen Schritt für Schritt vor, damit du dich jederzeit wohlfühlst und solide Grundlagen entwickelst. Egal, ob du fünf oder fünfundfünfzig bist – es ist nie zu spät, mit dem Skaten anzufangen!
