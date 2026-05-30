@@ -16,7 +16,6 @@ const ImpressumPage: React.FC = () => {
 
             <h3 className="text-xl font-bold text-brand-dark pt-4">Kontakt</h3>
             <p>
-                Telefon: 015204469299<br />
                 E-Mail: sortelba@online.de
             </p>  
             <h3 className="text-xl font-bold text-brand-dark pt-4">Umsatzsteuer-ID</h3>
